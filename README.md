@@ -20,10 +20,11 @@ This is a personal portfolio web application built with **React.js**, showcasing
 - Express.js
 - Java
 - SQL (MySQL)
+- MongoDB
 - Redis
 - Material UI
 - Power BI
-- DevOps (Currently Exploring)
+- Docker (Currently Exploring)
 
 ## Tools Used
 
@@ -32,10 +33,6 @@ This is a personal portfolio web application built with **React.js**, showcasing
 - Postman
 - Slack
 - Vercel
-
-## Screenshots
-
-![Portfolio Screenshot](link-to-screenshot)
 
 ## Installation
 
@@ -67,6 +64,7 @@ This project is licensed under the MIT License.
 **GitHub:** https://github.com/Pratikshapandey1609
 
 **Portfolio:** [Your Portfolio Link]
+
 
 
 
