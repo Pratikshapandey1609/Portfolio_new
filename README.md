@@ -9,8 +9,8 @@
 
 <p align="center"> 
   <kbd>
-    <a href="https://varadbhogayata.github.io" target="_blank">
-      <img src="examples/preview.gif" alt="Portfolio Preview">
+    <a href="" target="_blank">
+      <img src="examples/image.gif" alt="Portfolio Preview">
     </a>
   </kbd>
 </p>
@@ -34,7 +34,7 @@
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/<your-username>/<your-repo>.git
+   git clone https://github.com/<Pratikshapandey1609>/<Portfolio_new>.git
    ```
 
 2. **Customize the content**
@@ -76,7 +76,7 @@
 * ✔️ Contact Information
 * ✔️ Resume
 
-🔗 **Live Demo:** [Click here to view](https://varadbhogayata.github.io/)
+🔗 **Live Demo:** [Click here to view]()
 
 ---
 
