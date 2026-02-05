@@ -22,6 +22,11 @@ const Footer = () => {
       href: 'https://github.com/Pratikshapandey1609',
       label: 'GitHub',
     },
+    {
+      icon: 'fab fa-twitter',
+      href: 'https://x.com/pratikshaP920',
+      label: 'Twitter',
+    },
   ];
 
   const scrollToSection = (sectionId) => {

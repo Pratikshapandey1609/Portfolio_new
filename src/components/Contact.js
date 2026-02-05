@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import GeometricBackground from './GeometricBackground';
+import { emailjsConfig } from '../config/emailjs';
 
 const Contact = () => {
   const [inView, setInView] = useState(false);
@@ -35,6 +37,7 @@ const Contact = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
   const handleChange = (e) => {
     setFormData({
@@ -46,13 +49,59 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    // Check if EmailJS is configured
+    if (emailjsConfig.serviceId === 'service_your_service_id' || 
+        emailjsConfig.templateId === 'template_your_template_id' || 
+        emailjsConfig.publicKey === 'your_public_key') {
+      
+      // EmailJS not configured yet - show message with contact info
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSubmitStatus('not_configured');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, 1000);
+      return;
+    }
+    
+    try {
+      // Template parameters for EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject || 'New Contact Form Message',
+        message: formData.message,
+        to_email: emailjsConfig.toEmail,
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(
+        emailjsConfig.serviceId, 
+        emailjsConfig.templateId, 
+        templateParams, 
+        emailjsConfig.publicKey
+      );
+      
+      setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      alert('Message sent successfully!');
-    }, 2000);
+      
+      // Show success message for 5 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      setSubmitStatus('error');
+      
+      // Show error message for 5 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -164,6 +213,16 @@ const Contact = () => {
               >
                 <i className="fab fa-github text-lg" />
               </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://x.com/pratikshaP920"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-warm-slate rounded-full flex items-center justify-center text-text-secondary hover:bg-electric-blue hover:text-deep-charcoal transition-all duration-300"
+              >
+                <i className="fab fa-twitter text-lg" />
+              </motion.a>
             </motion.div>
           </motion.div>
 
@@ -257,6 +316,50 @@ const Contact = () => {
                   </>
                 )}
               </motion.button>
+
+              {/* Status Messages */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-500 bg-opacity-10 border border-green-500 border-opacity-30 rounded-lg text-green-400 text-center"
+                >
+                  <i className="fas fa-check-circle mr-2" />
+                  Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-500 bg-opacity-10 border border-red-500 border-opacity-30 rounded-lg text-red-400 text-center"
+                >
+                  <i className="fas fa-exclamation-circle mr-2" />
+                  Failed to send message. Please try again or contact me directly.
+                </motion.div>
+              )}
+
+              {submitStatus === 'not_configured' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-yellow-500 bg-opacity-10 border border-yellow-500 border-opacity-30 rounded-lg text-yellow-400 text-center"
+                >
+                  <i className="fas fa-info-circle mr-2" />
+                  <div>
+                    <p className="mb-2">Email service is being set up. Please contact me directly:</p>
+                    <div className="flex flex-col sm:flex-row gap-2 justify-center text-sm">
+                      <a href="mailto:pratishapandey239@gmail.com" className="hover:text-electric-blue transition-colors">
+                        📧 pratishapandey239@gmail.com
+                      </a>
+                      <a href="https://wa.me/918120684746" className="hover:text-electric-blue transition-colors">
+                        📱 WhatsApp
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </form>
           </motion.div>
         </div>

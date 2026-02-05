@@ -248,6 +248,16 @@ const Navbar = () => {
               >
                 <i className="fab fa-github text-lg" />
               </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://x.com/pratikshaP920"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-warm-slate rounded-full flex items-center justify-center text-text-secondary hover:bg-electric-blue hover:text-deep-charcoal transition-all duration-300"
+              >
+                <i className="fab fa-twitter text-lg" />
+              </motion.a>
             </div>
           </motion.div>
         </motion.nav>
@@ -350,6 +360,16 @@ const Navbar = () => {
                     className="w-10 h-10 bg-warm-slate rounded-full flex items-center justify-center text-text-secondary hover:bg-electric-blue hover:text-deep-charcoal transition-all duration-300"
                   >
                     <i className="fab fa-github" />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    href="https://x.com/pratikshaP920"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-warm-slate rounded-full flex items-center justify-center text-text-secondary hover:bg-electric-blue hover:text-deep-charcoal transition-all duration-300"
+                  >
+                    <i className="fab fa-twitter" />
                   </motion.a>
                 </div>
               </div>
