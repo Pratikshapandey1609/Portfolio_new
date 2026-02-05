@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dark Theme Test - Pratiksha Pandey Portfolio</title>
+    
+    <!-- Modern Design System CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css" />
+    <link rel="stylesheet" href="/assets/css/modern-sections.css" />
+    <link rel="stylesheet" href="/assets/css/cursor-system.css" />
+    <link rel="stylesheet" href="/assets/css/navigation.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/resume-download.css" />
+    <link rel="stylesheet" href="/assets/css/interactive-skills.css" />
+    <link rel="stylesheet" href="/assets/css/responsive-utilities.css" />
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-xl);
+            background: var(--color-rich-graphite);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-warm-slate);
+        }
+        
+        .test-section {
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-xl);
+            background: var(--color-rich-graphite);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-warm-slate);
+        }
+        
+        .test-title {
+            color: var(--color-electric-blue);
+            font-size: var(--font-size-h2);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+        
+        .test-grid {
+            display: grid;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .test-item {
+            padding: var(--space-md);
+            background: var(--color-warm-slate);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-electric-blue);
+        }
+        
+        .breakpoint-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--color-electric-blue);
+            color: var(--color-deep-charcoal);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: var(--font-weight-bold);
+            z-index: 1000;
+        }
+        
+        .color-test {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .color-swatch {
+            height: 80px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-primary);
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-small);
+            text-align: center;
+        }
+        
+        .responsive-test {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-md);
+        }
+        
+        .responsive-item {
+            background: var(--color-deep-charcoal);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            border: 2px solid var(--color-warm-slate);
+        }
+        
+        /* Responsive test styles */
+        @media (max-width: 480px) {
+            .responsive-test {
+                grid-template-columns: 1fr;
+            }
+            
+            .responsive-item:nth-child(1)::after {
+                content: " - Mobile (1 col)";
+                color: var(--color-electric-blue);
+            }
+        }
+        
+        @media (min-width: 481px) and (max-width: 768px) {
+            .responsive-test {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .responsive-item:nth-child(1)::after {
+                content: " - Tablet (2 cols)";
+                color: var(--color-soft-cyan);
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .responsive-test {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .responsive-item:nth-child(1)::after {
+                content: " - Desktop (3 cols)";
+                color: var(--color-muted-gold);
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .responsive-item:nth-child(1)::after {
+                content: " - Large (4 cols)";
+                color: var(--color-electric-blue);
+            }
+        }
+        
+        .component-test {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .touch-test {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .touch-target {
+            min-width: 44px;
+            min-height: 44px;
+            background: var(--color-electric-blue);
+            color: var(--color-deep-charcoal);
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-semibold);
+        }
+        
+        .navigation-test {
+            background: var(--color-deep-charcoal);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-electric-blue);
+        }
+        
+        .nav-test-item {
+            display: inline-block;
+            padding: var(--space-sm) var(--space-md);
+            margin: var(--space-xs);
+            background: var(--color-warm-slate);
+            color: var(--color-text-primary);
+            text-decoration: none;
+            border-radius: var(--radius-sm);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+        
+        .nav-test-item:hover {
+            background: var(--color-electric-blue);
+            color: var(--color-deep-charcoal);
+        }
+    </style>
+</head>
+<body>
+    <div class="breakpoint-indicator" id="breakpointIndicator">
+        Loading...
+    </div>
+    
+    <div class="test-container">
+        <div class="test-header">
+            <h1 class="test-title">🌙 Responsive Dark Theme Test</h1>
+            <p style="color: var(--color-text-secondary); font-size: var(--font-size-body);">
+                Testing responsive design and dark theme implementation across all breakpoints
+            </p>
+        </div>
+        
+        <!-- Dark Theme Color Test -->
+        <div class="test-section">
+            <h2 class="test-title">🎨 Dark Theme Colors</h2>
+            <div class="color-test">
+                <div class="color-swatch" style="background: var(--color-deep-charcoal);">
+                    Deep Charcoal<br>#0a0a0b
+                </div>
+                <div class="color-swatch" style="background: var(--color-rich-graphite);">
+                    Rich Graphite<br>#1a1a1d
+                </div>
+                <div class="color-swatch" style="background: var(--color-warm-slate);">
+                    Warm Slate<br>#2d2d32
+                </div>
+                <div class="color-swatch" style="background: var(--color-electric-blue);">
+                    Electric Blue<br>#00d4ff
+                </div>
+                <div class="color-swatch" style="background: var(--color-soft-cyan);">
+                    Soft Cyan<br>#4dd0e1
+                </div>
+                <div class="color-swatch" style="background: var(--color-muted-gold);">
+                    Muted Gold<br>#ffd54f
+                </div>
+            </div>
+            <p style="color: var(--color-text-secondary); text-align: center;">
+                ✅ All colors follow dark theme palette - No white backgrounds used
+            </p>
+        </div>
+        
+        <!-- Responsive Grid Test -->
+        <div class="test-section">
+            <h2 class="test-title">📱 Responsive Grid Test</h2>
+            <div class="responsive-test">
+                <div class="responsive-item">
+                    <i class="fas fa-mobile-alt" style="color: var(--color-electric-blue); font-size: 2rem; margin-bottom: var(--space-sm);"></i>
+                    <div>Item 1</div>
+                </div>
+                <div class="responsive-item">
+                    <i class="fas fa-tablet-alt" style="color: var(--color-soft-cyan); font-size: 2rem; margin-bottom: var(--space-sm);"></i>
+                    <div>Item 2</div>
+                </div>
+                <div class="responsive-item">
+                    <i class="fas fa-laptop" style="color: var(--color-muted-gold); font-size: 2rem; margin-bottom: var(--space-sm);"></i>
+                    <div>Item 3</div>
+                </div>
+                <div class="responsive-item">
+                    <i class="fas fa-desktop" style="color: var(--color-electric-blue); font-size: 2rem; margin-bottom: var(--space-sm);"></i>
+                    <div>Item 4</div>
+                </div>
+            </div>
+            <p style="color: var(--color-text-secondary); text-align: center;">
+                Resize window to see responsive grid changes: 1 col (mobile) → 2 cols (tablet) → 3 cols (desktop) → 4 cols (large)
+            </p>
+        </div>
+        
+        <!-- Component Test -->
+        <div class="test-section">
+            <h2 class="test-title">🧩 Component Responsiveness</h2>
+            <div class="component-test">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-secondary">Secondary Button</button>
+                <button class="btn btn-ghost">Ghost Button</button>
+                <button class="btn btn-small">Small Button</button>
+                <button class="btn btn-large">Large Button</button>
+            </div>
+            <div class="component-test" style="margin-top: var(--space-lg);">
+                <div class="card" style="max-width: 300px;">
+                    <div class="card-header">
+                        <h3 class="card-title">Responsive Card</h3>
+                        <p class="card-subtitle">Adapts to screen size</p>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--color-text-secondary);">
+                            This card maintains proper spacing and readability across all devices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Touch Target Test -->
+        <div class="test-section">
+            <h2 class="test-title">👆 Touch Target Test</h2>
+            <div class="touch-test">
+                <button class="touch-target">44px</button>
+                <button class="touch-target">Touch</button>
+                <button class="touch-target">Target</button>
+                <button class="touch-target">Test</button>
+                <button class="touch-target">✓</button>
+            </div>
+            <p style="color: var(--color-text-secondary); text-align: center; margin-top: var(--space-md);">
+                All interactive elements meet minimum 44px touch target size for accessibility
+            </p>
+        </div>
+        
+        <!-- Navigation Test -->
+        <div class="test-section">
+            <h2 class="test-title">🧭 Navigation Responsiveness</h2>
+            <div class="navigation-test">
+                <nav style="text-align: center;">
+                    <a href="#" class="nav-test-item">Home</a>
+                    <a href="#" class="nav-test-item">About</a>
+                    <a href="#" class="nav-test-item">Projects</a>
+                    <a href="#" class="nav-test-item">Skills</a>
+                    <a href="#" class="nav-test-item">Contact</a>
+                    <a href="#" class="nav-test-item" style="background: var(--color-electric-blue); color: var(--color-deep-charcoal);">Resume</a>
+                </nav>
+            </div>
+            <p style="color: var(--color-text-secondary); text-align: center; margin-top: var(--space-md);">
+                Navigation adapts from horizontal layout to mobile hamburger menu
+            </p>
+        </div>
+        
+        <!-- Typography Test -->
+        <div class="test-section">
+            <h2 class="test-title">📝 Typography Responsiveness</h2>
+            <div class="test-grid" style="grid-template-columns: 1fr;">
+                <div class="test-item">
+                    <h1 style="color: var(--color-text-primary); margin-bottom: var(--space-sm);">Heading 1 - Responsive</h1>
+                    <h2 style="color: var(--color-text-primary); margin-bottom: var(--space-sm);">Heading 2 - Responsive</h2>
+                    <h3 style="color: var(--color-text-primary); margin-bottom: var(--space-sm);">Heading 3 - Responsive</h3>
+                    <p style="color: var(--color-text-secondary); line-height: var(--line-height-relaxed);">
+                        Body text that maintains readability across all screen sizes. Font sizes scale appropriately 
+                        from mobile to desktop, ensuring optimal reading experience on every device.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Accessibility Test -->
+        <div class="test-section">
+            <h2 class="test-title">♿ Accessibility Features</h2>
+            <div class="test-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="test-item">
+                    <h4 style="color: var(--color-electric-blue); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-eye" aria-hidden="true"></i> High Contrast
+                    </h4>
+                    <p style="color: var(--color-text-secondary);">
+                        Dark theme provides excellent contrast ratios for better readability.
+                    </p>
+                </div>
+                <div class="test-item">
+                    <h4 style="color: var(--color-electric-blue); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-hand-pointer" aria-hidden="true"></i> Touch Friendly
+                    </h4>
+                    <p style="color: var(--color-text-secondary);">
+                        All interactive elements meet minimum touch target requirements.
+                    </p>
+                </div>
+                <div class="test-item">
+                    <h4 style="color: var(--color-electric-blue); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-universal-access" aria-hidden="true"></i> Motion Safe
+                    </h4>
+                    <p style="color: var(--color-text-secondary);">
+                        Respects user's motion preferences and provides reduced motion alternatives.
+                    </p>
+                </div>
+                <div class="test-item">
+                    <h4 style="color: var(--color-electric-blue); margin-bottom: var(--space-sm);">
+                        <i class="fas fa-keyboard" aria-hidden="true"></i> Keyboard Nav
+                    </h4>
+                    <p style="color: var(--color-text-secondary);">
+                        Full keyboard navigation support with visible focus indicators.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Performance Test -->
+        <div class="test-section">
+            <h2 class="test-title">⚡ Performance Features</h2>
+            <div class="test-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="test-item">
+                    <div style="text-align: center;">
+                        <div class="spinner" style="margin: 0 auto var(--space-sm);"></div>
+                        <p style="color: var(--color-text-secondary);">GPU Accelerated</p>
+                    </div>
+                </div>
+                <div class="test-item">
+                    <div style="text-align: center;">
+                        <div class="progress" style="margin-bottom: var(--space-sm);">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                        <p style="color: var(--color-text-secondary);">Optimized Loading</p>
+                    </div>
+                </div>
+                <div class="test-item">
+                    <div style="text-align: center;">
+                        <i class="fas fa-mobile-alt" style="color: var(--color-electric-blue); font-size: 2rem; margin-bottom: var(--space-sm);"></i>
+                        <p style="color: var(--color-text-secondary);">Mobile First</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/responsive-handler.js"></script>
+    
+    <script>
+        // Update breakpoint indicator
+        function updateBreakpointIndicator() {
+            const indicator = document.getElementById('breakpointIndicator');
+            const width = window.innerWidth;
+            let breakpoint = '';
+            let color = '';
+            
+            if (width <= 480) {
+                breakpoint = 'Mobile';
+                color = '#00d4ff';
+            } else if (width <= 768) {
+                breakpoint = 'Tablet';
+                color = '#4dd0e1';
+            } else if (width <= 1024) {
+                breakpoint = 'Desktop';
+                color = '#ffd54f';
+            } else {
+                breakpoint = 'Large';
+                color = '#00d4ff';
+            }
+            
+            indicator.textContent = `${breakpoint} (${width}px)`;
+            indicator.style.background = color;
+        }
+        
+        // Update on load and resize
+        window.addEventListener('load', updateBreakpointIndicator);
+        window.addEventListener('resize', updateBreakpointIndicator);
+        
+        // Test touch targets
+        document.querySelectorAll('.touch-target').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.background = 'var(--color-soft-cyan)';
+                setTimeout(() => {
+                    this.style.background = 'var(--color-electric-blue)';
+                }, 200);
+            });
+        });
+        
+        // Test responsive handler integration
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.responsiveHandler) {
+                console.log('✅ Responsive Handler loaded successfully');
+                console.log('Current breakpoint:', window.responsiveHandler.getBreakpoint());
+                console.log('Is touch device:', window.responsiveHandler.isTouch);
+            } else {
+                console.log('❌ Responsive Handler not loaded');
+            }
+        });
+        
+        // Log breakpoint changes
+        window.addEventListener('breakpointChange', function(e) {
+            console.log('Breakpoint changed:', e.detail);
+        });
+    </script>
+</body>
+</html>

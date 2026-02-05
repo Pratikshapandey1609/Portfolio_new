@@ -1,0 +1,553 @@
+/* ===================================
+   RESPONSIVE UTILITIES & DARK THEME ENFORCEMENT
+   ================================== */
+
+/* === DARK THEME COLOR OVERRIDES === */
+/* Ensure no white colors are used anywhere */
+* {
+  /* Override any potential white backgrounds */
+  --white: var(--color-text-primary);
+  --background-white: var(--color-deep-charcoal);
+  --text-white: var(--color-text-primary);
+}
+
+/* Force dark theme on all elements that might have white */
+.white,
+.bg-white,
+[style*="background: white"],
+[style*="background-color: white"],
+[style*="color: white"] {
+  background-color: var(--color-deep-charcoal) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Remove all default margins and padding */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: var(--color-deep-charcoal) !important;
+}
+
+/* Fix container spacing issues */
+.container {
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/* Remove excessive section spacing */
+.section {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* Fix navigation spacing */
+.main-nav {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.nav-container {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+/* === RESPONSIVE DISPLAY UTILITIES === */
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+.hide-tablet {
+  display: block;
+}
+
+.show-tablet {
+  display: none;
+}
+
+.hide-desktop {
+  display: block;
+}
+
+.show-desktop {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .show-mobile {
+    display: block !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .hide-tablet {
+    display: none !important;
+  }
+  
+  .show-tablet {
+    display: block !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+  
+  .show-desktop {
+    display: block !important;
+  }
+}
+
+/* === RESPONSIVE TEXT UTILITIES === */
+.text-center-mobile {
+  text-align: left;
+}
+
+.text-left-mobile {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .text-center-mobile {
+    text-align: center !important;
+  }
+  
+  .text-left-mobile {
+    text-align: left !important;
+  }
+}
+
+/* === RESPONSIVE SPACING UTILITIES === */
+.p-mobile {
+  padding: var(--space-md);
+}
+
+.px-mobile {
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.py-mobile {
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-md);
+}
+
+.m-mobile {
+  margin: var(--space-md);
+}
+
+.mx-mobile {
+  margin-left: var(--space-md);
+  margin-right: var(--space-md);
+}
+
+.my-mobile {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 480px) {
+  .p-mobile {
+    padding: var(--space-sm) !important;
+  }
+  
+  .px-mobile {
+    padding-left: var(--space-sm) !important;
+    padding-right: var(--space-sm) !important;
+  }
+  
+  .py-mobile {
+    padding-top: var(--space-sm) !important;
+    padding-bottom: var(--space-sm) !important;
+  }
+  
+  .m-mobile {
+    margin: var(--space-sm) !important;
+  }
+  
+  .mx-mobile {
+    margin-left: var(--space-sm) !important;
+    margin-right: var(--space-sm) !important;
+  }
+  
+  .my-mobile {
+    margin-top: var(--space-sm) !important;
+    margin-bottom: var(--space-sm) !important;
+  }
+}
+
+/* === RESPONSIVE FLEXBOX UTILITIES === */
+.flex-mobile {
+  display: flex;
+}
+
+.flex-column-mobile {
+  flex-direction: row;
+}
+
+.flex-wrap-mobile {
+  flex-wrap: nowrap;
+}
+
+.justify-center-mobile {
+  justify-content: flex-start;
+}
+
+.align-center-mobile {
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .flex-column-mobile {
+    flex-direction: column !important;
+  }
+  
+  .flex-wrap-mobile {
+    flex-wrap: wrap !important;
+  }
+  
+  .justify-center-mobile {
+    justify-content: center !important;
+  }
+  
+  .align-center-mobile {
+    align-items: center !important;
+  }
+}
+
+/* === RESPONSIVE GRID UTILITIES === */
+.grid-mobile {
+  display: grid;
+}
+
+.grid-1-mobile {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-2-mobile {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-3-mobile {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 480px) {
+  .grid-1-mobile {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .grid-2-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .grid-3-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid-1-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .grid-2-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .grid-3-mobile {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* === RESPONSIVE WIDTH UTILITIES === */
+.w-full-mobile {
+  width: auto;
+}
+
+.w-half-mobile {
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .w-full-mobile {
+    width: 100% !important;
+  }
+  
+  .w-half-mobile {
+    width: 50% !important;
+  }
+}
+
+/* === RESPONSIVE FONT SIZE UTILITIES === */
+.text-sm-mobile {
+  font-size: var(--font-size-body);
+}
+
+.text-lg-mobile {
+  font-size: var(--font-size-h3);
+}
+
+.text-xl-mobile {
+  font-size: var(--font-size-h2);
+}
+
+@media (max-width: 768px) {
+  .text-sm-mobile {
+    font-size: var(--font-size-small) !important;
+  }
+  
+  .text-lg-mobile {
+    font-size: var(--font-size-body) !important;
+  }
+  
+  .text-xl-mobile {
+    font-size: var(--font-size-h3) !important;
+  }
+}
+
+/* === TOUCH OPTIMIZATION UTILITIES === */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.touch-friendly {
+  padding: var(--space-md);
+  margin: var(--space-sm);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .touch-target {
+    min-width: 48px;
+    min-height: 48px;
+  }
+  
+  .touch-friendly {
+    padding: var(--space-lg);
+    margin: var(--space-md);
+  }
+}
+
+/* === ACCESSIBILITY UTILITIES === */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.focus-visible {
+  outline: 2px solid var(--color-electric-blue);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-electric-blue);
+  color: var(--color-deep-charcoal);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  z-index: calc(var(--z-overlay) + 2);
+  transition: top var(--duration-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* === DARK THEME ENFORCEMENT === */
+/* Override any remaining light theme elements */
+input,
+textarea,
+select,
+button {
+  background-color: var(--color-rich-graphite) !important;
+  color: var(--color-text-primary) !important;
+  border-color: var(--color-warm-slate) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-electric-blue) !important;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1) !important;
+}
+
+/* Ensure all text is readable on dark background */
+p, span, div, h1, h2, h3, h4, h5, h6, li, td, th {
+  color: var(--color-text-secondary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-primary) !important;
+}
+
+/* Override any potential white text on dark backgrounds */
+.text-white {
+  color: var(--color-text-primary) !important;
+}
+
+/* === RESPONSIVE CONTAINER UTILITIES === */
+.container-fluid {
+  width: 100%;
+  padding: 0 var(--space-md);
+}
+
+.container-sm {
+  max-width: 576px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container-md {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container-lg {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container-xl {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+@media (max-width: 480px) {
+  .container-fluid,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    padding: 0 var(--space-sm);
+  }
+}
+
+/* === RESPONSIVE IMAGE UTILITIES === */
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* === RESPONSIVE ASPECT RATIO UTILITIES === */
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-photo {
+  aspect-ratio: 4 / 3;
+}
+
+/* Fallback for browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
+  .aspect-square::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+  
+  .aspect-video::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%;
+  }
+  
+  .aspect-photo::before {
+    content: '';
+    display: block;
+    padding-top: 75%;
+  }
+}
+
+/* === PRINT UTILITIES === */
+@media print {
+  .print-hidden {
+    display: none !important;
+  }
+  
+  .print-visible {
+    display: block !important;
+  }
+  
+  .page-break-before {
+    page-break-before: always;
+  }
+  
+  .page-break-after {
+    page-break-after: always;
+  }
+  
+  .page-break-inside-avoid {
+    page-break-inside: avoid;
+  }
+}
+
+/* === HIGH CONTRAST MODE UTILITIES === */
+@media (prefers-contrast: high) {
+  .high-contrast-border {
+    border: 2px solid var(--color-text-primary) !important;
+  }
+  
+  .high-contrast-bg {
+    background: var(--color-deep-charcoal) !important;
+    color: var(--color-text-primary) !important;
+  }
+}
+
+/* === REDUCED MOTION UTILITIES === */
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .motion-reduce {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

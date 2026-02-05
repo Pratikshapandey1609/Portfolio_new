@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- SEO Meta Tags -->
+  <title>Pratiksha Pandey | Premium Software Developer Portfolio</title>
+  <meta name="description" content="Premium portfolio of Pratiksha Pandey - Full-stack developer specializing in MERN stack, Java, and modern web technologies. Creating impactful applications with elegant design.">
+  <meta name="keywords" content="software developer, full-stack developer, MERN stack, Java, React, Node.js, portfolio">
+  <meta name="author" content="Pratiksha Pandey">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Pratiksha Pandey | Premium Software Developer Portfolio">
+  <meta property="og:description" content="Full-stack developer creating impactful applications with modern technologies">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pratikshapandey.dev">
+  <meta property="og:image" content="/assets/img/og-image.jpg">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pratiksha Pandey | Software Developer">
+  <meta name="twitter:description" content="Full-stack developer creating impactful applications">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-icon-180x180.png">
+  
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/design-system.css">
+  <link rel="stylesheet" href="/assets/css/cursor-system.css">
+  <link rel="stylesheet" href="/assets/css/navigation.css">
+  <link rel="stylesheet" href="/assets/css/modern-sections.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/resume-download.css">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Custom Cursor Elements -->
+  <div class="cursor"></div>
+  
+  <!-- Navigation -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="#hero" class="logo-link magnetic-element">
+          <img src="/assets/img/passport-new.jpg" alt="Pratiksha Pandey" class="logo-image">
+          <span class="logo-text">Pratiksha</span>
+        </a>
+      </div>
+      
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li>
+          <div class="resume-download-container">
+            <div class="download-hint">Preview before download</div>
+            <button class="resume-download-btn magnetic-element">
+              <div class="btn-content">
+                <i class="fas fa-file-pdf btn-icon"></i>
+                <span class="btn-text">View Resume</span>
+              </div>
+              <div class="download-progress"></div>
+              <svg class="success-checkmark" viewBox="0 0 24 24">
+                <circle class="checkmark-circle" cx="12" cy="12" r="10"/>
+                <path class="checkmark-check" d="M9 12l2 2 4-4"/>
+              </svg>
+            </button>
+          </div>
+        </li>
+      </ul>
+      
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section section">
+      <div class="hero-particles" id="hero-particles"></div>
+      
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 class="hero-title">
+            Pratiksha <span class="highlight">Pandey</span>
+          </h1>
+          <h2 class="hero-subtitle">Turning curiosity into code, one problem at a time</h2>
+          <p class="hero-description">
+            Every bug is a puzzle waiting to be solved. Every feature is a story waiting to be told. 
+            I craft digital experiences that bridge the gap between human needs and technological possibilities.
+          </p>
+          
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary btn-large cta-button magnetic-element">
+              <i class="fas fa-rocket"></i>
+              View My Work
+            </a>
+            <a href="#contact" class="btn btn-secondary btn-large magnetic-element">
+              <i class="fas fa-envelope"></i>
+              Let's Connect
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            Where logic meets creativity in the digital realm
+          </p>
+        </div>
+        
+        <div class="about-content">
+          <div class="about-text">
+            <div class="about-story">
+              <p>
+                My relationship with code began with a simple question: "What if?" What if we could make this process smoother? 
+                What if users didn't have to struggle with this interface? What if technology could genuinely improve someone's day?
+              </p>
+              <p>
+                That curiosity led me down the rabbit hole of full-stack development, where I discovered that the most elegant 
+                solutions often come from understanding both the technical constraints and the human experience. Whether I'm 
+                architecting a backend system or crafting a user interface, I'm driven by the belief that great software should 
+                feel effortless to use, even when it's incredibly complex under the hood.
+              </p>
+              <p>
+                My toolkit has evolved from Java fundamentals to the dynamic world of MERN stack development, but the core 
+                remains the same: solve real problems for real people. Each project teaches me something new, each challenge 
+                pushes me to think differently, and each solution becomes a stepping stone to the next adventure.
+              </p>
+            </div>
+            
+            <div class="about-highlights">
+              <div class="highlight-item magnetic-element">
+                <i class="fas fa-puzzle-piece highlight-icon"></i>
+                <div>
+                  <h4>Problem-solver at heart, developer by choice</h4>
+                  <p>Every challenge is an opportunity to create something meaningful</p>
+                </div>
+              </div>
+              
+              <div class="highlight-item magnetic-element">
+                <i class="fas fa-bridge highlight-icon"></i>
+                <div>
+                  <h4>Bridging complex systems and intuitive experiences</h4>
+                  <p>Making the complicated feel simple and natural</p>
+                </div>
+              </div>
+              
+              <div class="highlight-item magnetic-element">
+                <i class="fas fa-seedling highlight-icon"></i>
+                <div>
+                  <h4>Constantly learning, consistently delivering</h4>
+                  <p>Growth mindset with a commitment to excellence</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="about-visual">
+            <img src="/assets/img/passport-new.jpg" alt="Pratiksha Pandey" class="about-image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-subtitle">
+            A comprehensive toolkit for building modern, scalable applications
+          </p>
+        </div>
+        
+        <div class="skills-grid">
+          <!-- Languages & Core -->
+          <div class="skill-category magnetic-element">
+            <h3 class="skill-category-title">
+              <i class="fas fa-code skill-category-icon"></i>
+              Languages & Core
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item" data-skill="90">
+                <img src="/assets/img/javascript.png" alt="JavaScript" class="skill-icon">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="85">
+                <img src="/assets/img/python-logo.jpg" alt="Java" class="skill-icon">
+                <span class="skill-name">Java</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="80">
+                <img src="/assets/img/python.jpg" alt="Python" class="skill-icon">
+                <span class="skill-name">Python</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="75">
+                <img src="/assets/img/html5.png" alt="HTML5" class="skill-icon">
+                <span class="skill-name">HTML5</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="75">
+                <img src="/assets/img/css3.png" alt="CSS3" class="skill-icon">
+                <span class="skill-name">CSS3</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Frontend Frameworks -->
+          <div class="skill-category magnetic-element">
+            <h3 class="skill-category-title">
+              <i class="fas fa-paint-brush skill-category-icon"></i>
+              Frontend
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item" data-skill="88">
+                <img src="/assets/img/react-logo.jpg" alt="React" class="skill-icon">
+                <span class="skill-name">React.js</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="82">
+                <img src="/assets/img/taildwind-logo.jpg" alt="Tailwind CSS" class="skill-icon">
+                <span class="skill-name">Tailwind CSS</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 82%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="80">
+                <img src="/assets/img/materialui-logo.jpg" alt="Material UI" class="skill-icon">
+                <span class="skill-name">Material UI</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="75">
+                <img src="/assets/img/bootstrap.png" alt="Bootstrap" class="skill-icon">
+                <span class="skill-name">Bootstrap</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend & Database -->
+          <div class="skill-category magnetic-element">
+            <h3 class="skill-category-title">
+              <i class="fas fa-server skill-category-icon"></i>
+              Backend & Database
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item" data-skill="85">
+                <img src="/assets/img/nodejs.png" alt="Node.js" class="skill-icon">
+                <span class="skill-name">Node.js</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="80">
+                <img src="/assets/img/mysql-logo-1.png" alt="MongoDB" class="skill-icon">
+                <span class="skill-name">MongoDB</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="78">
+                <img src="/assets/img/mysql-logo-1.png" alt="MySQL" class="skill-icon">
+                <span class="skill-name">MySQL</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 78%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="75">
+                <img src="/assets/img/postgresql.png" alt="PostgreSQL" class="skill-icon">
+                <span class="skill-name">PostgreSQL</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & DevOps -->
+          <div class="skill-category magnetic-element">
+            <h3 class="skill-category-title">
+              <i class="fas fa-tools skill-category-icon"></i>
+              Tools & DevOps
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item" data-skill="85">
+                <img src="/assets/img/git.png" alt="Git" class="skill-icon">
+                <span class="skill-name">Git</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="75">
+                <img src="/assets/img/aws.png" alt="AWS" class="skill-icon">
+                <span class="skill-name">AWS</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="70">
+                <img src="/assets/img/heroku.png" alt="Docker" class="skill-icon">
+                <span class="skill-name">Docker</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-item" data-skill="68">
+                <img src="/assets/img/heroku.png" alt="Heroku" class="skill-icon">
+                <span class="skill-name">Heroku</span>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 68%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            Showcasing innovation through code - from concept to deployment
+          </p>
+        </div>
+        
+        <div class="projects-filter">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="ai">AI/ML</button>
+          <button class="filter-btn" data-filter="realtime">Real-Time</button>
+        </div>
+        
+        <div class="projects-grid">
+          <!-- Resume Parser -->
+          <div class="project-card magnetic-element" data-category="ai fullstack">
+            <img src="/assets/img/Resume-logo.jpg" alt="Resume Parser" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">AI Resume Parser</h3>
+              <p class="project-description">
+                What started as frustration with manual resume screening became an intelligent parsing system that saves 
+                recruiters hours of work. By combining natural language processing with intuitive design, this tool transforms 
+                the chaotic world of resume formats into structured, actionable data.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">AI/ML</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Pratikshapandey1609/Resume-Parssing" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i>
+                  Code
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Expense Tracker -->
+          <div class="project-card magnetic-element" data-category="fullstack">
+            <img src="/assets/img/ExpenseTracker-logo.png" alt="Expense Tracker" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Smart Expense Tracker</h3>
+              <p class="project-description">
+                Personal finance shouldn't require a degree in accounting. This tracker emerged from the simple belief that 
+                understanding your money should be as easy as spending it. Real-time insights meet beautiful design in a tool 
+                that actually makes budgeting enjoyable.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Chart.js</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Pratikshapandey1609/Expense-Tracker" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i>
+                  Code
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time Chat -->
+          <div class="project-card magnetic-element" data-category="realtime fullstack">
+            <img src="/assets/img/real-time-chat.jpg" alt="Real-Time Chat" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Real-Time Chat Application</h3>
+              <p class="project-description">
+                In a world of delayed responses and missed connections, this chat platform brings back the magic of instant 
+                communication. Built with scalability in mind, it handles everything from intimate conversations to bustling 
+                community discussions with equal grace.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Socket.io</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">JWT</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Pratikshapandey1609/RealTime_ChatApp" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i>
+                  Code
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Code Reviewer -->
+          <div class="project-card magnetic-element" data-category="ai fullstack">
+            <img src="/assets/img/code-review.jpg" alt="AI Code Reviewer" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">AI Code Reviewer</h3>
+              <p class="project-description">
+                Every developer has been there – staring at code wondering if there's a better way. This AI-powered reviewer 
+                acts as your coding companion, catching issues before they become problems and suggesting improvements that make 
+                your code not just functional, but elegant.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">AI APIs</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">MongoDB</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Pratikshapandey1609/AI-CODE-REVIEW" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i>
+                  Code
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-Time Tracker -->
+          <div class="project-card magnetic-element" data-category="realtime fullstack">
+            <img src="/assets/img/real-timeTracker.jpg" alt="Real-Time Tracker" class="project-image">
+            <div class="project-content">
+              <h3 class="project-title">Real-Time Activity Tracker</h3>
+              <p class="project-description">
+                Sometimes the most powerful insights come from the smallest actions. This tracking system captures the subtle 
+                patterns in user behavior, transforming raw activity data into meaningful stories about how people interact 
+                with digital products.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Socket.io</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Redis</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/Pratikshapandey1609/REALTIMETRACKER12" target="_blank" class="project-link">
+                  <i class="fab fa-github"></i>
+                  Code
+                </a>
+                <a href="#" class="project-link">
+                  <i class="fas fa-external-link-alt"></i>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Let's Create Something Amazing</h2>
+          <p class="section-subtitle">
+            Ready to bring your ideas to life? Let's discuss your next project
+          </p>
+        </div>
+        
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-methods">
+              <div class="contact-method magnetic-element">
+                <i class="fas fa-envelope contact-icon"></i>
+                <div class="contact-details">
+                  <h4>Email</h4>
+                  <p>pratishapandey239@gmail.com</p>
+                </div>
+              </div>
+              
+              <div class="contact-method magnetic-element">
+                <i class="fas fa-phone contact-icon"></i>
+                <div class="contact-details">
+                  <h4>Phone</h4>
+                  <p>+91 8120684746</p>
+                </div>
+              </div>
+              
+              <div class="contact-method magnetic-element">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <div class="contact-details">
+                  <h4>Location</h4>
+                  <p>Jabalpur, India</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/pratiksha-pandey-147770276/" target="_blank" class="social-link magnetic-element" data-tooltip="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/Pratikshapandey1609" target="_blank" class="social-link magnetic-element" data-tooltip="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="mailto:pratishapandey239@gmail.com" class="social-link magnetic-element" data-tooltip="Email">
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="/assets/resume/PratikshaPandey_Resume (2).pdf" target="_blank" class="social-link magnetic-element" data-tooltip="Resume">
+                <i class="fas fa-file-pdf"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form id="contact-form" class="form">
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn btn-primary btn-large cta-button magnetic-element">
+                <i class="fas fa-paper-plane"></i>
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2024 Pratiksha Pandey. Crafted with passion and precision.</p>
+        <p>Building the future, one line of code at a time.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/assets/js/accessibility-system.js"></script>
+  <script src="/assets/js/cursor-system.js"></script>
+  <script src="/assets/js/animations.js"></script>
+  <script src="/assets/js/hero-section.js"></script>
+  <script src="/assets/js/resume-download.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,9 +1,9 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
   <!-- Google Tag Manager -->
@@ -14,12 +14,35 @@
   })(window,document,'script','dataLayer','GTM-PGZH8HT');</script>
   <!-- End Google Tag Manager -->
 
-  <!-- Materialize - Compiled and minified CSS-->
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
-  <!-- Font Awesome Icon - CSS-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-  <!-- Custom Styles-->
+  <!-- Modern Design System CSS -->
+  <link rel="stylesheet" href="/assets/css/design-system.css" />
+  <link rel="stylesheet" href="/assets/css/modern-sections.css" />
+  <link rel="stylesheet" href="/assets/css/cursor-system.css" />
+  <link rel="stylesheet" href="/assets/css/navigation.css" />
+  <link rel="stylesheet" href="/assets/css/components.css" />
+  <link rel="stylesheet" href="/assets/css/resume-download.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/interactive-skills.css" /> -->
+  <link rel="stylesheet" href="/assets/css/responsive-utilities.css" />
+  <link rel="stylesheet" href="/assets/css/layout-fixes.css" />
+  
+  <!-- Font Awesome Icon - CSS (Updated version) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  
+  <!-- Complete Fix CSS - Overrides all layout and styling issues -->
+  <link rel="stylesheet" href="/assets/css/complete-fix.css" />
+  
+  <!-- Side Navigation CSS -->
+  <link rel="stylesheet" href="/assets/css/side-navigation.css" />
+  
+  <!-- Professional Spacing CSS -->
+  <link rel="stylesheet" href="/assets/css/professional-spacing.css" />
+  
+  <!-- Professional Optimization CSS -->
+  <link rel="stylesheet" href="/assets/css/professional-optimization.css" />
+  
+  <!-- Legacy styles for compatibility (loaded after complete-fix for selective overrides) -->
   <link rel="stylesheet" href="/assets/css/style.css" />
+  
   <title>Pratiksha Pandey | Software Developer</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -77,222 +100,149 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
   
-  <!-- Navigation Menu-->
-  <!-- Nav class 1 -->
-  <nav class="hide-on-small-only">
-    <ul class="side-nav fixed section table-of-contents">
-
-      <li class="logo">
-        <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
-          class="brand-logo grey-blue-text">
-          <img src="/assets/img/passport-new.jpg" class="circle img-responsive profile-pic" alt="avatar">
+  <!-- Side Navigation System -->
+  <div class="nav-trigger"></div>
+  <div class="nav-hint">Hover to navigate</div>
+  <div class="nav-indicator"></div>
+  
+  <nav class="side-nav" role="navigation" aria-label="Main navigation">
+    <div class="side-nav-header">
+      <div class="side-nav-logo">
+        <img src="/assets/img/passport-new.jpg" alt="Pratiksha Pandey" />
+      </div>
+      <h1 class="side-nav-title">Pratiksha</h1>
+      <p class="side-nav-subtitle">Full-Stack Developer</p>
+    </div>
+    
+    <ul class="side-nav-menu" role="menubar">
+      <li class="side-nav-item" role="none">
+        <a href="#hero" class="side-nav-link active" role="menuitem">
+          <i class="fas fa-home" aria-hidden="true"></i>
+          <span>Home</span>
         </a>
       </li>
-
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
+      <li class="side-nav-item" role="none">
+        <a href="#about" class="side-nav-link" role="menuitem">
+          <i class="fas fa-user" aria-hidden="true"></i>
+          <span>About</span>
+        </a>
       </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
+      <li class="side-nav-item" role="none">
+        <a href="#skills" class="side-nav-link" role="menuitem">
+          <i class="fas fa-cogs" aria-hidden="true"></i>
+          <span>Skills</span>
+        </a>
       </li>
-
-      <li class="bold">
-        <!-- mdi-av-web small
-             mdi-av-my-library-books small-->
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+      <li class="side-nav-item" role="none">
+        <a href="#projects" class="side-nav-link" role="menuitem">
+          <i class="fas fa-code" aria-hidden="true"></i>
+          <span>Projects</span>
+        </a>
       </li>
-
-      <li class="bold">
-        <!--
-        ICONS:
-        mdi-action-assessment
-        mdi-social-poll
-        mdi-av-equalizer
-        -->
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
+      <li class="side-nav-item" role="none">
+        <a href="#contact" class="side-nav-link" role="menuitem">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          <span>Contact</span>
+        </a>
       </li>
-      
-      <li class="bold">
-        <!--
-        ICONS:
-        -->
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
-
-      <li class="bold">
-        <!-- 
-        1. mdi-communication-contacts
-        2. mdi-content-mail
-        3. mdi-communication-email
-        -->
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-
-      <li class="bold">
-        <!--
-        ICONS:
-        1. mdi-action-description
-        2. mdi-file-folder
-        3. mdi-file-folder-open
-        4. mdi-file-attachment
-        5. mdi-file-folder-shared
-        -->
-        <!-- <a aria-label="Open Varad's resume in a new tab" href="#resume" target="_blank"
-          onclick="window.open('https://drive.google.com/file/d/1vYi-bMyIsZPve0x_clxY8xsDtiHiOMd3/view?usp=sharing')"
-          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a> -->
-        <a aria-label="Open Pratiksha's resume in a new tab" href="https://github.com/Pratikshapandey1609/RESUME/blob/main/PratikshaPandey_Resume%20(2).pdf" target="_blank"
-        class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>  
+      <li class="side-nav-item" role="none">
+        <a href="#resume" class="side-nav-link" role="menuitem">
+          <i class="fas fa-file-alt" aria-hidden="true"></i>
+          <span>Resume</span>
+        </a>
       </li>
     </ul>
-  </nav>
-
-  <!-- Nav class 2 -->
-  <nav class="hide-on-large only trigger z-depth-1">
-    <a aria-label="Toggle visibility of the mobile navbar" href="#" data-activates="slide-out"
-      class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    <div class="name-title">
-      <a id="name" aria-label="Navigate to the beginning of the page" href="#" class="teal-text">Pratiksha
-        Pandey</a><span class="black-text">Software Developer</span>
+    
+    <div class="side-nav-footer">
+      <div class="side-nav-social">
+        <a href="https://www.linkedin.com/in/pratiksha-pandey-147770276/" target="_blank" rel="noopener noreferrer" 
+           class="side-nav-social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/Pratikshapandey1609" target="_blank" rel="noopener noreferrer" 
+           class="side-nav-social-link" aria-label="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
   </nav>
+  
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <i class="fas fa-bars"></i>
+  </button>
+  
+  <!-- Mobile Navigation Overlay -->
+  <div class="side-nav-overlay"></div>
 
-  <!-- Nav class 3 -->
-  <nav class="hide-on-large only">
-    <ul id="slide-out" class="side-nav">
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
-      </li>
-
-      <li class="bold">
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Open Varad's Resume in a new tab"
-          href="https://drive.google.com/file/d/1B6MZ1z0-7NsefC3Lm_q-uhib28MTqpE9/view?usp=sharing" target="_blank"
-          class="waves-effect waves-dark teal-text"><i class="mdi-file-folder-open small"></i><span>Resume</span></a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Main Content-->
-  <main>
-    <!-- First Section: Heading lines and image -->
-    <section id="intro" class="section scrollspy full-height">
-      <div class="overlay"></div>
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Hero Section with Clean Design -->
+    <section id="hero" class="hero-section section" role="banner" aria-labelledby="hero-title">
+      <div class="hero-particles" id="hero-particles" aria-hidden="true"></div>
       <div class="container">
-        <div class="col-md-9">
-          <div class="content section-padding valign" style="margin-left: 10%; margin-top: 50px;">
-            <div class="caption">
-              <h2>Hi, I'm <span class="teal">Pratiksha Pandey</span></h2>
-              <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
-              <!-- <h5 style="color:#00796b">A <span class="typing" style="font-weight: 300; color:#fff"></span></h5> -->
-              <h5>Self-motivated and proactive programmer with a curious mindset, passionate about tackling complex, real-world challenges through efficient problem-solving.</h5>
-            </div>
-            <div class="social">
-              <a href="https://www.linkedin.com/in/pratiksha-pandey-147770276/" target="_blank">
-                <button class="icon-btn linkedin">
-                  <i class="fa fa-linkedin"></i>
-                </button>
-              </a>
-              <a href="https://github.com/Pratikshapandey1609" target="_blank">
-                <button class="icon-btn github">
-                  <i class="fa fa-github"></i>
-                </button>
-              </a>
-
-              <!-- <a href="https://angel.co/u/varad_bhogayata" target="_blank">
-                <button class="icon-btn angellist">
-                  <i class="fa fa-angellist"></i>
-                </button>
-              </a> -->
-
-              <!-- <a href="http://linkedin.com/in/varadbhogayata" target="_blank">
-                  <span class="fa-stack fa-lg">
-                    <i class="fa fa-circle fa-stack-2x"></i>
-                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-
-                  </span>
-              </a> -->
-            </div>
-            <div class='buttons'>
-              <a href="#about" class="readme">Read More</a>
-              <a href="#contact" class="contactme">Contact Me</a>
-            </div>
+        <div class="hero-content" data-animate="fadeInUp">
+          <p class="hero-greeting">Hello, I'm</p>
+          <h1 id="hero-title" class="hero-title">
+            <span class="highlight">Pratiksha Pandey</span>
+          </h1>
+          <h2 class="hero-subtitle">Full-Stack Developer</h2>
+          <p class="hero-description">
+            Computer Science student specializing in Java, Spring Boot, React, and modern web technologies with expertise in building scalable, secure applications using MERN stack and enterprise Java solutions.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary cta-button magnetic-element smooth-scroll" data-magnetic-strength="0.3">
+              <span>View Projects</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary cta-button magnetic-element smooth-scroll" data-magnetic-strength="0.3">
+              <span>Contact Me</span>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
+      <div class="scroll-indicator" aria-hidden="true">
+        <span>Scroll to explore</span>
+        <div class="scroll-arrow"></div>
+      </div>
     </section>
 
-    <!-- Second Section: About -->
-    <section id="about" class="section scrollspy">
-      <h3 class="page-title white-text teal">About</h3>
-      <div class="container flow-text">
-        <!-- <blockquote>
-          <h2>
-            A Software Developer with a passion for Backend Development and Artificial Intelligence.
-
-          </h2>
-        </blockquote> -->        
-        <p>
-          I am a Computer Science student and full-stack developer with a strong focus on Java  and MERN stack development. I enjoy problem-solving, building scalable applications, and consistently giving my best to every task I take on.
-          I have hands-on experience with Java,  JavaScript, React, Node.js, Express, MongoDB, SQL, HTML, and CSS, along with a solid foundation in data structures, algorithms, and backend system design. Through academic projects, hackathons, and continuous self-learning, I have strengthened my ability to design and develop efficient, real-world solutions.
-          I am passionate about creating impactful applications that solve real-world problems, continuously learning new technologies, and growing as a developer while contributing to meaningful products used by people at scale.
-        </p>
-        <p>
-          <ul>
-            <li><b>Languages:</b> Python, Java, JavaScript, C, C++, HTML/CSS</li>
-            <li><b>Databases:</b> MySQL,  MongoDB</li>
-            <li><b>Libraries:</b>React.js, Redux / Redux Toolkit  ,Tailwind CSS ,Material UI (MUI) , bcrypt.js , Socket io , Multer</li>
-            <li><b>Frameworks:</b>Node.js, Taildwind, Bootstrap</li>
-            <li><b>Tools & Technologies:</b> Git, Docker, AWS, GCP,JIRA</li>
-            <li><b>Currently Focus on : </b> DevOps</li>
-          </ul>
-        </p>
+    <!-- About Section - Simplified -->
+    <section id="about" class="about-section section" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-header" data-animate="fadeInUp">
+          <h2 id="about-title" class="section-title">About Me</h2>
+          <p class="section-subtitle">Dedicated Computer Science student with expertise in full-stack development</p>
+        </header>
+        
+        <div class="about-content">
+          <div class="about-text" data-animate="slideInLeft">
+            <p class="about-description">
+              I'm a Computer Science student at Shri Ram Institute of Technology, specializing in full-stack development with expertise in Java, Spring Boot, React, and modern web technologies. 
+              I focus on building scalable, secure applications using both MERN stack and enterprise Java solutions.
+            </p>
+            <p class="about-description">
+              Currently expanding my skills in DevOps technologies like Docker and Kubernetes while maintaining a strong foundation 
+              in database management with MongoDB, MySQL, and PostgreSQL, along with API development and testing using Postman.
+            </p>
+          </div>
           
-        <!-- <p>
-          
-          Detail-oriented Software Developer with professional experience in Backend Development, Machine Learning, Computer Vision. I am adept in Python, Django, Flask, SQL, Machine Learning, Computer Vision.           
-        </p> -->
-        <p>
-          Looking for an opportunity to work in a challenging position combining my skills in Software Engineering, which provides professional development, interesting experiences and personal growth.
-        </p>
-        <!-- <p>
-          Another Paragraph
-        </p>  -->
-        <!-- <p>
-        <strong>Current Focus</strong>:&nbsp;<a aria-label="Navigate to the Inclusive Design Patterns homepage"
-          href="https://www.smashingmagazine.com/inclusive-design-patterns/">Accessibility</a>&nbsp;//&nbsp;<a
-          aria-label="Navigate to the Full Stack React homepage"
-          href="https://www.fullstackreact.com/">React</a>&nbsp;//&nbsp;<a
-          aria-label='Navigate to the article "Scalable CSS"'
-          href="https://mrmrs.github.io/writing/2016/03/24/scalable-css/">Design Systems</a>
-        </p> -->
+          <div class="about-stats" data-animate="slideInRight">
+            <div class="stat-item">
+              <h3 class="stat-number">10+</h3>
+              <p class="stat-label">Projects</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="stat-number">2+</h3>
+              <p class="stat-label">Years Experience</p>
+            </div>
+            <div class="stat-item">
+              <h3 class="stat-number">Java+React</h3>
+              <p class="stat-label">Tech Focus</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -343,406 +293,604 @@
       </div>
     </section>  -->
 
-    <!-- Fourth Section: Projects -->
-    <section id="projects" class="section scrollspy">
-      <h3 class="page-title white-text teal">Projects</h3>
+    <!-- Skills Section with Updated Technologies -->
+    <section id="skills" class="skills-section section" aria-labelledby="skills-title">
       <div class="container">
-        <div class="row">
-
-
-          <div class="col s12 m6 l4">
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img alt="resume parser" src="/assets/img/Resume-logo.jpg"
-        style="height: 100%; width: 100%" class="activator" />
-    </div>
-    <div class="card-content">
-      <span class="card-title activator teal-text hoverline">
-        Resume Parser<i class="mdi-navigation-more-vert right"></i>
-      </span>
-      <p>
-        AI-based resume parsing web application
-      </p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text">
-        <small>Accomplishments</small>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-      <ul>
-        <li><b>Tools:</b> React, Node.js, Express, MongoDB</li>
-        <li>Upload resumes and extract structured data automatically.</li>
-        <li>Parsed skills, experience, and education details.</li>
-        <li>Improved hiring workflow efficiency.</li>
-      </ul>
-      <div class="card-action">
-        <a aria-label="GitHub Repo" href="https://github.com/Pratikshapandey1609/Resume-Parssing"
-          target="_blank" class="btn-floating btn-large waves-effect waves-light blue-grey">
-          <i class="fa fa-github"></i>
-        </a>
-      </div>
-    </div>
-  </div>
+        <header class="section-header" data-animate="fadeInUp">
+          <h2 id="skills-title" class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">Technologies and tools I work with</p>
+        </header>
+        
+        <div class="skills-grid">
+          <div class="skill-category" data-animate="fadeInUp" data-delay="100">
+            <h3 class="skill-category-title">Backend Development</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-icon-placeholder java-icon">J</div>
+                <span class="skill-name">Java</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon-placeholder spring-icon">SB</div>
+                <span class="skill-name">Spring Boot</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/nodejs.png" alt="Node.js" class="skill-icon" />
+                <span class="skill-name">Node.js</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon-placeholder jwt-icon">JWT</div>
+                <span class="skill-name">JWT</span>
+              </div>
+            </div>
           </div>
 
-           <!-- expense tracker -->
-           <div class="col s12 m6 l4">
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img alt="expense tracker" src="/assets/img/ExpenseTracker-logo.png"
-        style="height: 100%; width: 100%" class="activator" />
-    </div>
-    <div class="card-content">
-      <span class="card-title activator teal-text hoverline">
-        Expense Tracker<i class="mdi-navigation-more-vert right"></i>
-      </span>
-      <p>
-        Personal finance management web app
-      </p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text">
-        <small>Accomplishments</small>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-      <ul>
-        <li><b>Tools:</b> React, Node.js, Express, MongoDB</li>
-        <li>Add, edit, and delete expenses.</li>
-        <li>Category-wise expense tracking.</li>
-        <li>Real-time balance updates.</li>
-      </ul>
-      <div class="card-action">
-        <a aria-label="GitHub Repo" href="https://github.com/Pratikshapandey1609/Expense-Tracker"
-          target="_blank" class="btn-floating btn-large waves-effect waves-light blue-grey">
-          <i class="fa fa-github"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-           </div>
-
-           <div class="col s12 m6 l4">
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img alt="chat app" src="/assets/img/real-time-chat.jpg"
-        style="height: 100%; width: 100%" class="activator" />
-    </div>
-    <div class="card-content">
-      <span class="card-title activator teal-text hoverline">
-        Real-Time Chat App<i class="mdi-navigation-more-vert right"></i>
-      </span>
-      <p>
-        Secure real-time messaging application
-      </p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text">
-        <small>Accomplishments</small>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-      <ul>
-        <li><b>Tools:</b> React, Node.js, Express, MongoDB, Socket.io</li>
-        <li>Real-time one-to-one messaging.</li>
-        <li>User authentication and authorization.</li>
-        <li>Scalable backend architecture.</li>
-      </ul>
-      <div class="card-action">
-        <a aria-label="GitHub Repo" href="https://github.com/Pratikshapandey1609/RealTime_ChatApp"
-          target="_blank" class="btn-floating btn-large waves-effect waves-light blue-grey">
-          <i class="fa fa-github"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-           </div>
-
-           <div class="col s12 m6 l4">
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img alt="ai code reviewer" src="/assets/img/code-review.jpg"
-        style="height: 100%; width: 100%" class="activator" />
-    </div>
-    <div class="card-content">
-      <span class="card-title activator teal-text hoverline">
-        AI Code Reviewer<i class="mdi-navigation-more-vert right"></i>
-      </span>
-      <p>
-        AI-powered code analysis and review platform
-      </p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text">
-        <small>Accomplishments</small>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-      <ul>
-        <li><b>Tools:</b> React, Node.js, Express, AI APIs</li>
-        <li>Automated code quality analysis and suggestions.</li>
-        <li>Detected bugs, security issues, and performance gaps.</li>
-        <li>Improved developer productivity and code standards.</li>
-      </ul>
-      <div class="card-action">
-        <a aria-label="GitHub Repo" href="https://github.com/Pratikshapandey1609/AI-CODE-REVIEW"
-          target="_blank" class="btn-floating btn-large waves-effect waves-light blue-grey">
-          <i class="fa fa-github"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-           </div>
-
-           <div class="col s12 m6 l4">
-  <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img alt="real time tracker" src="/assets/img/real-timeTracker.jpg"
-        style="height: 100%; width: 100%" class="activator" />
-    </div>
-    <div class="card-content">
-      <span class="card-title activator teal-text hoverline">
-        Real-Time Tracker<i class="mdi-navigation-more-vert right"></i>
-      </span>
-      <p>
-        Live tracking system with real-time updates
-      </p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text">
-        <small>Accomplishments</small>
-        <i class="mdi-navigation-close right"></i>
-      </span>
-      <ul>
-        <li><b>Tools:</b> React, Node.js, Express, MongoDB, Socket.io</li>
-        <li>Real-time data updates using WebSockets.</li>
-        <li>Live status monitoring and activity tracking.</li>
-        <li>Optimized backend for low-latency updates.</li>
-      </ul>
-      <div class="card-action">
-        <a aria-label="GitHub Repo" href="https://github.com/Pratikshapandey1609/REALTIMETRACKER12"
-          target="_blank" class="btn-floating btn-large waves-effect waves-light blue-grey">
-          <i class="fa fa-github"></i>
-        </a>
-      </div>
-    </div>
-  </div>
+          <div class="skill-category" data-animate="fadeInUp" data-delay="200">
+            <h3 class="skill-category-title">Frontend Development</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <img src="/assets/img/react-logo.jpg" alt="React" class="skill-icon" />
+                <span class="skill-name">React</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/javascript.png" alt="JavaScript" class="skill-icon" />
+                <span class="skill-name">JavaScript</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/html5.png" alt="HTML5" class="skill-icon" />
+                <span class="skill-name">HTML5</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/css3.png" alt="CSS3" class="skill-icon" />
+                <span class="skill-name">CSS3</span>
+              </div>
+            </div>
           </div>
 
+          <div class="skill-category" data-animate="fadeInUp" data-delay="300">
+            <h3 class="skill-category-title">Databases</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-icon-placeholder mongodb-icon">M</div>
+                <span class="skill-name">MongoDB</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/mysql-logo-1.png" alt="MySQL" class="skill-icon" />
+                <span class="skill-name">MySQL</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/postgresql.png" alt="PostgreSQL" class="skill-icon" />
+                <span class="skill-name">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category" data-animate="fadeInUp" data-delay="400">
+            <h3 class="skill-category-title">DevOps & Tools</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-icon-placeholder docker-icon">D</div>
+                <span class="skill-name">Docker</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon-placeholder k8s-icon">K8s</div>
+                <span class="skill-name">Kubernetes</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/git.png" alt="Git" class="skill-icon" />
+                <span class="skill-name">Git</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/github.png" alt="GitHub" class="skill-icon" />
+                <span class="skill-name">GitHub</span>
+              </div>
+              <div class="skill-item">
+                <div class="skill-icon-placeholder postman-icon">P</div>
+                <span class="skill-name">Postman</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category" data-animate="fadeInUp" data-delay="500">
+            <h3 class="skill-category-title">Analytics & Cloud</h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-icon-placeholder powerbi-icon">BI</div>
+                <span class="skill-name">Power BI</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/aws.png" alt="AWS" class="skill-icon" />
+                <span class="skill-name">AWS</span>
+              </div>
+              <div class="skill-item">
+                <img src="/assets/img/heroku.png" alt="Heroku" class="skill-icon" />
+                <span class="skill-name">Heroku</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Fifth Section: Skills -->
-    <section id="skills" class="section scrollspy">
-      <h3 class="page-title white-text teal">Skills</h3>
+    <!-- Projects Section - Clean and Professional -->
+    <section id="projects" class="projects-section section" aria-labelledby="projects-title"></section>
       <div class="container">
-        <!-- Languages and Databases -->
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Languages and Databases</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/python-logo.jpg" class="responsive-img" />Python
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/html5-300x300.jpg" class="responsive-img" />HTML5
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/css3-300x300.jpg" class="responsive-img" />CSS3
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/mysql-logo-1-300x300.jpg" class="responsive-img" />MySQL
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/postgresql-logo.png" class="responsive-img" />PostgreSQL
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/shell-logo-1-300x300.jpg" class="responsive-img" />Java
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/javascript.png" class="responsive-img" />javascript
+        <header class="section-header" data-animate="fadeInUp">
+          <h2 id="projects-title" class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">A selection of my recent work</p>
+        </header>
+        
+        <div class="projects-grid">
+          <article class="project-card" data-animate="fadeInUp" data-delay="100">
+            <div class="project-image-container">
+              <img src="/assets/img/Resume-logo.jpg" alt="Resume Parser Project" class="project-image" loading="lazy" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/Pratikshapandey1609/Resume-Parssing" target="_blank" rel="noopener noreferrer" 
+                     class="project-link" aria-label="View Resume Parser source code">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+            <div class="project-content">
+              <h3 class="project-title">Resume Parser</h3>
+              <p class="project-description">
+                AI-powered resume parsing system that extracts and structures information from resumes 
+                with high accuracy, reducing manual processing time by 85%.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">JWT</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fadeInUp" data-delay="200">
+            <div class="project-image-container">
+              <img src="/assets/img/ExpenseTracker-logo.png" alt="Expense Tracker Project" class="project-image" loading="lazy" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/Pratikshapandey1609/Expense-Tracker" target="_blank" rel="noopener noreferrer" 
+                     class="project-link" aria-label="View Expense Tracker source code">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Expense Tracker</h3>
+              <p class="project-description">
+                Personal finance management application with intuitive categorization, 
+                real-time balance updates, and insightful spending analytics.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JWT</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fadeInUp" data-delay="300">
+            <div class="project-image-container">
+              <img src="/assets/img/real-time-chat.jpg" alt="Real-Time Chat App Project" class="project-image" loading="lazy" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/Pratikshapandey1609/RealTime_ChatApp" target="_blank" rel="noopener noreferrer" 
+                     class="project-link" aria-label="View Chat App source code">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Real-Time Chat App</h3>
+              <p class="project-description">
+                WebSocket-based chat application with instant messaging, 
+                connection state management, and graceful failure recovery.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Docker</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-animate="fadeInUp" data-delay="400">
+            <div class="project-image-container">
+              <img src="/assets/img/code-review.jpg" alt="AI Code Reviewer Project" class="project-image" loading="lazy" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a href="https://github.com/Pratikshapandey1609/AI-CODE-REVIEW" target="_blank" rel="noopener noreferrer" 
+                     class="project-link" aria-label="View AI Code Reviewer source code">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">AI Code Reviewer</h3>
+              <p class="project-description">
+                Intelligent code analysis system that provides contextual suggestions 
+                for code improvements, vulnerability detection, and best practices.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Spring Boot</span>
+                <span class="tech-tag">MongoDB</span>
+                <span class="tech-tag">Kubernetes</span>
+              </div>
+            </div>
+          </article>
         </div>
-
-        <!-- Libraries -->
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Libraries</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/react-logo.jpg" class="responsive-img" />React.js
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/bcrypt-logo.jpg" class="responsive-img" />bcrypt.js
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/socket-logo.jpg" class="responsive-img" />Socket.io
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/materialui-logo.jpg" class="responsive-img" />Material UI (MUI)
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/taildwind-logo.jpg" class="responsive-img" />Tailwind CSS
-              </div>
-            </div>
-          </div>
-        </div> 
-
-        <!-- Frameworks -->
-        <!-- <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Frameworks</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/django-logo.webp" class="responsive-img" />Django
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/flask-logo.png" class="responsive-img" />Flask
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/bootstrap.png" class="responsive-img" />Bootstrap
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/keras-logo.png" class="responsive-img" />Keras
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/tensorflow-logo-1.png" class="responsive-img" />TensorFlow
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/pytorch-logo.png" class="responsive-img" />PyTorch
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Other -->
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Other</h4>
-            <div class="row text-center">
-
-
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/git.png" class="responsive-img" />Git
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/aws.png" class="responsive-img" />AWS
-              </div>
-              <div class="col s4 m2">
-                <img alt="" src="/assets/img/heroku.png" class="responsive-img" />Heroku
-              </div>
-            </div>
-          </div>
-        </div>
-
-
       </div>
     </section>
 
-    <!-- Seventh Section: Education -->
-    <section id="education" class="section scrollspy">
-      <h3 class="page-title white-text teal">Education</h3>
+    <!-- Contact Section with Enhanced Interactions -->
+    <section id="contact" class="contact-section section" aria-labelledby="contact-title">
       <div class="container">
-        <div class="row">
-          <!-- Education -->
-          <div class="col s12 m6 l6">
-            
-          </div>
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content">
-                <p>
-                  <span class="card-title"><a href="https://sritgroup.net/" target="_blank" class="teal-text hoverline">Shri Ram Institute of Technology, jabalpur India
-                      University</a></span>
-                </p>
-                <p class="brown-text">Jabalpur, India</p>
-                <p>
-                  <b>Degree: </b>Bachelor of Technology in Computer Science and Engineering
-                  <br>
-                  <b>CGPA: </b>7.89/10
-                </p>
-
-                <ul>
+        <header class="section-header" data-animate="fadeInUp">
+          <h2 id="contact-title" class="section-title">Contact</h2>
+          <p class="section-subtitle">Let's discuss your next project</p>
+        </header>
+        
+        <div class="contact-content">
+          <div class="contact-info" data-animate="slideInLeft">
+            <div class="contact-methods">
+              <div class="contact-method">
+                <i class="fas fa-phone contact-icon" aria-hidden="true"></i>
+                <div class="contact-details">
+                  <h4>Phone</h4>
                   <p>
-                    <b>Relevant Courseworks:</b>
-                  <ul>
-                    <li>Data Structures and Algorithms</li>
-                    <li>Database Management Systems</li>
-                    <li>Operating Systems</li>
-                    <li>Machine Learning</li>
-                  </ul>
+                    <a href="tel:+918120684746" class="contact-link">+91 8120684746</a>
                   </p>
-
-                </ul>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <i class="fas fa-envelope contact-icon" aria-hidden="true"></i>
+                <div class="contact-details">
+                  <h4>Email</h4>
+                  <p>
+                    <a href="mailto:pratishapandey239@gmail.com" class="contact-link">pratishapandey239@gmail.com</a>
+                  </p>
+                </div>
+              </div>
+              
+              <div class="contact-method">
+                <i class="fas fa-map-marker-alt contact-icon" aria-hidden="true"></i>
+                <div class="contact-details">
+                  <h4>Location</h4>
+                  <p>Jabalpur, India</p>
+                </div>
               </div>
             </div>
+            
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/pratiksha-pandey-147770276/" target="_blank" rel="noopener noreferrer" 
+                 class="social-link magnetic-element" aria-label="LinkedIn Profile" data-magnetic-strength="0.2">
+                <i class="fab fa-linkedin" aria-hidden="true"></i>
+              </a>
+              <a href="https://github.com/Pratikshapandey1609" target="_blank" rel="noopener noreferrer" 
+                 class="social-link magnetic-element" aria-label="GitHub Profile" data-magnetic-strength="0.2">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </div>
           </div>
+          
+          <form id="contact-form" class="contact-form" data-animate="slideInRight" novalidate>
+            <div class="form-group">
+              <label for="contact-name" class="form-label">Name *</label>
+              <input type="text" id="contact-name" name="name" class="form-input" required 
+                     aria-describedby="name-error" autocomplete="name" />
+              <span id="name-error" class="form-error" role="alert"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-email" class="form-label">Email *</label>
+              <input type="email" id="contact-email" name="email" class="form-input" required 
+                     aria-describedby="email-error" autocomplete="email" />
+              <span id="email-error" class="form-error" role="alert"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-subject" class="form-label">Subject</label>
+              <input type="text" id="contact-subject" name="subject" class="form-input" 
+                     autocomplete="off" />
+            </div>
+            
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message *</label>
+              <textarea id="contact-message" name="message" class="form-textarea" rows="5" required 
+                        aria-describedby="message-error" placeholder="Tell me about your project or just say hello!"></textarea>
+              <span id="message-error" class="form-error" role="alert"></span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-submit magnetic-element" data-magnetic-strength="0.3">
+              <span class="btn-text">Send Message</span>
+              <i class="fas fa-paper-plane btn-icon" aria-hidden="true"></i>
+            </button>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- Eight Section: Contact -->
-    <section id="contact" class="section scrollspy full-height">
-      <h3 class="page-title white-text teal">Contact</h3>
+    <!-- Resume Section -->
+    <section id="resume" class="section resume-section" aria-labelledby="resume-title">
       <div class="container">
-        <p>
-          <a aria-label="Call Pratiksha" data-position="top" data-tooltip="Call Pratiksha"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-phone"></i><a
-              aria-label="Call Pratiksha">+918120684746</a></a>
-        </p>
-        <p>
-          <a aria-label="Email Pratiksha" href="mailto:pratikshapandey@gmail.com" target="_blank" data-position="top"
-            data-tooltip="Email Pratiksha" class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-envelope"></i><a aria-label="Email Pratiksha" href="mailto:pratikshapandey@gmail.com"
-              class="hoverline">pratishapandey239@gmail.com</a></a>
-        </p>
-        <p>
-          <a aria-label="View Pratiksha on GitHub" href="https://github.com/Pratikshapandey1609" target="_blank"
-            data-position="top" data-tooltip="View Pratiksha on GitHub"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-github"></i><a
-              aria-label="Pratiksha on Github" href="https://github.com/Pratikshapandey1609" class="hoverline"
-              target="_blank">github.com/Pratikshapandey1609</a></a>
-        </p>
-        <p>
-          <a aria-label="View Pratiksha on LinkedIn" href="https://www.linkedin.com/in/pratiksha-pandey-147770276/" target="_blank"
-            data-position="top" data-tooltip="View Pratiksha on LinkedIn"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-linkedin"></i><a aria-label="Pratiksha on LinkedIn" href="https://www.linkedin.com/in/pratiksha-pandey-147770276/"
-              class="hoverline" target="_blank">linkedin.com/in/pratiksha-pandey-147770276/</a></a>
-        </p>
+        <header class="section-header" data-animate="fadeInUp">
+          <h2 id="resume-title" class="section-title">Resume</h2>
+          <p class="section-subtitle">Download my resume to learn more about my experience and qualifications</p>
+        </header>
+        
+        <div class="resume-content" data-animate="fadeInUp" data-delay="200">
+          <div class="resume-card">
+            <div class="resume-preview">
+              <div class="resume-icon">
+                <i class="fas fa-file-pdf" aria-hidden="true"></i>
+              </div>
+              <div class="resume-info">
+                <h3 class="resume-title">Pratiksha Pandey - Software Developer</h3>
+                <p class="resume-subtitle">Full-Stack Engineer | MERN Stack Specialist</p>
+                <div class="resume-details">
+                  <span class="resume-detail">
+                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                    Last updated: December 2024
+                  </span>
+                  <span class="resume-detail">
+                    <i class="fas fa-file-alt" aria-hidden="true"></i>
+                    PDF Format
+                  </span>
+                  <span class="resume-detail">
+                    <i class="fas fa-download" aria-hidden="true"></i>
+                    Ready to Download
+                  </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="resume-actions">
+              <a href="https://github.com/Pratikshapandey1609/RESUME/blob/main/PratikshaPandey_Resume%20(2).pdf" 
+                 target="_blank" rel="noopener noreferrer" 
+                 class="btn btn-primary resume-download-btn magnetic-element" 
+                 data-magnetic-strength="0.3"
+                 aria-label="Download resume PDF">
+                <i class="fas fa-download" aria-hidden="true"></i>
+                <span>Download Resume</span>
+              </a>
+              <button class="btn btn-secondary resume-preview-btn magnetic-element" 
+                      data-magnetic-strength="0.3"
+                      aria-label="Preview resume">
+                <i class="fas fa-eye" aria-hidden="true"></i>
+                <span>Quick Preview</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="resume-highlights" data-animate="fadeInUp" data-delay="400">
+            <h3 class="highlights-title">Resume Highlights</h3>
+            <div class="highlights-grid">
+              <div class="highlight-item">
+                <div class="highlight-icon-wrapper">
+                  <i class="fas fa-graduation-cap highlight-icon" aria-hidden="true"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Education</h4>
+                  <p>B.Tech Computer Science</p>
+                  <span class="highlight-detail">CGPA: 7.89/10</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon-wrapper">
+                  <i class="fas fa-code highlight-icon" aria-hidden="true"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Specialization</h4>
+                  <p>Full-Stack Development</p>
+                  <span class="highlight-detail">Java • React • Spring Boot</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon-wrapper">
+                  <i class="fas fa-project-diagram highlight-icon" aria-hidden="true"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Projects</h4>
+                  <p>10+ Completed Projects</p>
+                  <span class="highlight-detail">AI • Web Apps • APIs</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon-wrapper">
+                  <i class="fas fa-tools highlight-icon" aria-hidden="true"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Tech Stack</h4>
+                  <p>Modern Technologies</p>
+                  <span class="highlight-detail">MERN • Java • DevOps</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon-wrapper">
+                  <i class="fas fa-database highlight-icon" aria-hidden="true"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>Databases</h4>
+                  <p>Multi-Database Experience</p>
+                  <span class="highlight-detail">MongoDB • MySQL • PostgreSQL</span>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon-wrapper">
+                  <i class="fas fa-cloud highlight-icon" aria-hidden="true"></i>
+                </div>
+                <div class="highlight-content">
+                  <h4>DevOps & Cloud</h4>
+                  <p>Modern Deployment</p>
+                  <span class="highlight-detail">Docker • Kubernetes • AWS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>Pratiksha Pandey</h3>
+          <p>Full-Stack Developer passionate about creating impactful digital solutions</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about" class="footer-link">About</a>
+          <a href="#projects" class="footer-link">Projects</a>
+          <a href="#skills" class="footer-link">Skills</a>
+          <a href="#contact" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/in/pratiksha-pandey-147770276/" target="_blank" rel="noopener noreferrer" 
+             class="social-link" aria-label="LinkedIn">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="https://github.com/Pratikshapandey1609" target="_blank" rel="noopener noreferrer" 
+             class="social-link" aria-label="GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Pratiksha Pandey. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-  <!-- typed.js -->
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script type="text/javascript">
-    var typed = new Typed('.typing',{
-      strings: ["Developer", "Fast Learner"],
-      loop: true,
-      typeSpeed: 80,
-      backSpeed: 40
+  <!-- Modern JavaScript Systems -->
+  <script src="/assets/js/animations.js"></script>
+  <script src="/assets/js/cursor-system.js"></script>
+  <script src="/assets/js/hero-section.js"></script>
+  <!-- <script src="/assets/js/interactive-skills.js"></script> -->
+  <script src="/assets/js/accessibility-system.js"></script>
+  <script src="/assets/js/resume-download.js"></script>
+  <script src="/assets/js/touch-optimization.js"></script>
+  <script src="/assets/js/side-navigation.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/responsive-handler.js"></script>
+  <script src="/assets/js/accessibility-system.js"></script>
+  <script src="/assets/js/animations.js"></script>
+  <script src="/assets/js/cursor-system.js"></script>
+  <script src="/assets/js/hero-section.js"></script>
+  <script src="/assets/js/resume-download.js"></script>
+  <!-- <script src="/assets/js/interactive-skills.js"></script> -->
+  <script src="/assets/js/main.js"></!-->
+  
+  <!-- Typed.js for typewriter effect -->
+  <script src="/assets/vendor/typed.js/typed.min.js"></script>
+  
+  <!-- Initialize typewriter effect -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize typewriter effect for hero subtitle
+      const typingElement = document.querySelector('.typing');
+      if (typingElement && window.Typed) {
+        const typingText = typingElement.dataset.typingText;
+        if (typingText) {
+          const strings = typingText.split(',');
+          new Typed('.typing', {
+            strings: strings,
+            typeSpeed: 80,
+            backSpeed: 60,
+            backDelay: 2000,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+          });
+        }
+      }
+      
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"], .smooth-scroll').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const offsetTop = target.offsetTop - 70; // Account for fixed nav
+            window.scrollTo({
+              top: offsetTop,
+              behavior: 'smooth'
+            });
+            
+            // Update active nav link
+            document.querySelectorAll('.side-nav-link').forEach(link => {
+              link.classList.remove('active');
+            });
+            
+            const correspondingNavLink = document.querySelector(`a[href="${this.getAttribute('href')}"]`);
+            if (correspondingNavLink && correspondingNavLink.classList.contains('side-nav-link')) {
+              correspondingNavLink.classList.add('active');
+            }
+          }
+        });
+      });
+      
+      // Intersection Observer for active nav states
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.side-nav-link');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -80% 0px',
+        threshold: 0
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+      
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+      
+      // Enhanced animations on scroll
+      const animateOnScroll = () => {
+        const elements = document.querySelectorAll('[data-animate]');
+        elements.forEach(element => {
+          const elementTop = element.getBoundingClientRect().top;
+          const elementVisible = 150;
+          
+          if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('animate-in');
+          }
+        });
+      };
+      
+      window.addEventListener('scroll', animateOnScroll);
+      animateOnScroll(); // Run on load
+      
+      // Add loading animations
+      setTimeout(() => {
+        document.body.classList.add('loaded');
+      }, 100);
     });
   </script>
 
-
-  <!-- jQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-  <!-- Materialize - Compiled and minified JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
-  <script>
-    // Materialize - Initializers
-    $(document).ready(function () {
-      $(".scrollspy").scrollSpy()
-      // Initialize collapse button
-      $(".button-collapse").sideNav({
-        menuWidth: 190, // Default is 240
-        edge: "left", // Choose the horizontal origin
-        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-      })
-    })
-  </script>
 </body>
-
 </html>

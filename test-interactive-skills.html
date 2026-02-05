@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Skills Test</title>
+    <link rel="stylesheet" href="/assets/css/design-system.css" />
+    <link rel="stylesheet" href="/assets/css/modern-sections.css" />
+    <link rel="stylesheet" href="/assets/css/interactive-skills.css" />
+    <style>
+        body {
+            background: var(--color-deep-charcoal);
+            color: var(--color-text-primary);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 2rem;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .test-status {
+            background: var(--color-rich-graphite);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>Interactive Skills Display Test</h1>
+            <p>Testing the enhanced skills section with visual proficiency indicators</p>
+        </div>
+        
+        <div class="test-status" id="test-status">
+            <p>Initializing interactive skills system...</p>
+        </div>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-subtitle">Technologies I work with to bring ideas to life</p>
+                </header>
+                
+                <!-- This will be replaced by the interactive skills system -->
+                <div class="skills-grid">
+                    <div class="loading-placeholder">
+                        <p>Loading interactive skills display...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/assets/js/interactive-skills.js"></script>
+    <script>
+        // Test the interactive skills system
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusElement = document.getElementById('test-status');
+            
+            try {
+                // Check if the InteractiveSkillsSystem was initialized
+                setTimeout(() => {
+                    const skillsContainer = document.querySelector('.interactive-skills-container');
+                    const filterTabs = document.querySelectorAll('.filter-tab');
+                    const skillCards = document.querySelectorAll('.enhanced-skill-card');
+                    
+                    if (skillsContainer) {
+                        statusElement.innerHTML = `
+                            <h3>✅ Interactive Skills System Loaded Successfully!</h3>
+                            <ul>
+                                <li>Skills container: ${skillsContainer ? 'Found' : 'Not found'}</li>
+                                <li>Filter tabs: ${filterTabs.length} tabs created</li>
+                                <li>Skill cards: ${skillCards.length} cards created</li>
+                                <li>Categories: ${document.querySelectorAll('.skill-category').length} categories</li>
+                            </ul>
+                            <p><strong>Test the following features:</strong></p>
+                            <ul>
+                                <li>Click filter tabs to switch between skill categories</li>
+                                <li>Hover over skill cards to see animations</li>
+                                <li>Click "View Details" to open skill modal</li>
+                                <li>Check circular progress indicators</li>
+                                <li>Verify smooth transitions</li>
+                            </ul>
+                        `;
+                        statusElement.style.background = 'rgba(0, 212, 255, 0.1)';
+                        statusElement.style.border = '1px solid var(--color-electric-blue)';
+                    } else {
+                        statusElement.innerHTML = `
+                            <h3>❌ Interactive Skills System Failed to Load</h3>
+                            <p>The skills container was not created. Check console for errors.</p>
+                        `;
+                        statusElement.style.background = 'rgba(255, 0, 0, 0.1)';
+                        statusElement.style.border = '1px solid red';
+                    }
+                }, 1000);
+                
+            } catch (error) {
+                statusElement.innerHTML = `
+                    <h3>❌ Error Loading Interactive Skills</h3>
+                    <p>Error: ${error.message}</p>
+                `;
+                statusElement.style.background = 'rgba(255, 0, 0, 0.1)';
+                statusElement.style.border = '1px solid red';
+                console.error('Interactive Skills Test Error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

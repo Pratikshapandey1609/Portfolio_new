@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprehensive Cursor System Test</title>
+  <link rel="stylesheet" href="/assets/css/design-system.css">
+  <link rel="stylesheet" href="/assets/css/cursor-system.css">
+  <style>
+    body {
+      padding: 2rem;
+      min-height: 200vh;
+      background: var(--color-deep-charcoal);
+    }
+    
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .test-card {
+      background: var(--color-rich-graphite);
+      padding: 2rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-warm-slate);
+    }
+    
+    .test-card h3 {
+      color: var(--color-electric-blue);
+      margin-bottom: 1rem;
+      font-family: var(--font-display);
+    }
+    
+    .test-element {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 1rem 1.5rem;
+      background: var(--color-warm-slate);
+      color: var(--color-text-primary);
+      text-decoration: none;
+      border: none;
+      border-radius: var(--radius-md);
+      transition: all var(--duration-fast) var(--ease-out);
+      cursor: pointer;
+    }
+    
+    .test-element:hover {
+      background: var(--color-electric-blue);
+      color: var(--color-deep-charcoal);
+      transform: translateY(-2px);
+    }
+    
+    .magnetic-element {
+      background: var(--color-muted-gold);
+      color: var(--color-deep-charcoal);
+      font-weight: var(--font-weight-semibold);
+    }
+    
+    .cta-button {
+      background: linear-gradient(45deg, var(--color-electric-blue), var(--color-soft-cyan));
+      color: var(--color-deep-charcoal);
+      font-weight: var(--font-weight-bold);
+      padding: 1rem 2rem;
+    }
+    
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-soft-cyan);
+      color: var(--color-deep-charcoal);
+      margin: 0.5rem;
+    }
+    
+    .text-input, .form-textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      background: var(--color-warm-slate);
+      border: 1px solid var(--color-electric-blue);
+      color: var(--color-text-primary);
+      border-radius: var(--radius-md);
+      font-family: var(--font-primary);
+    }
+    
+    .draggable-item {
+      width: 120px;
+      height: 120px;
+      background: var(--color-soft-cyan);
+      margin: 1rem;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-deep-charcoal);
+      font-weight: var(--font-weight-bold);
+      cursor: move;
+    }
+    
+    .performance-stats {
+      background: var(--color-deep-charcoal);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      margin: 1rem 0;
+      font-family: var(--font-mono);
+      font-size: var(--font-size-small);
+    }
+    
+    .status-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: var(--radius-full);
+      margin-right: 0.5rem;
+    }
+    
+    .status-good { background: #4caf50; }
+    .status-warning { background: #ff9800; }
+    .status-error { background: #f44336; }
+    
+    .test-controls {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: var(--color-rich-graphite);
+      padding: 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-electric-blue);
+      z-index: 1000;
+    }
+    
+    .test-controls button {
+      display: block;
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.5rem 1rem;
+      background: var(--color-electric-blue);
+      color: var(--color-deep-charcoal);
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: var(--font-size-small);
+    }
+    
+    .project-card {
+      background: var(--color-warm-slate);
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      margin: 1rem;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .skill-item {
+      display: flex;
+      align-items: center;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      background: var(--color-warm-slate);
+      border-radius: var(--radius-md);
+    }
+  </style>
+</head>
+<body>
+  <div class="test-controls">
+    <h4 style="color: var(--color-electric-blue); margin-bottom: 1rem;">Cursor Tests</h4>
+    <button onclick="testLoadingState()">Test Loading</button>
+    <button onclick="testHideShow()">Test Hide/Show</button>
+    <button onclick="showPerformanceStats()">Performance Stats</button>
+    <button onclick="testAllStates()">Test All States</button>
+    <button onclick="stressTest()">Stress Test</button>
+  </div>
+
+  <h1 style="color: var(--color-electric-blue); font-family: var(--font-display);">
+    Comprehensive Cursor System Test
+  </h1>
+  
+  <div id="performance-display" class="performance-stats"></div>
+  
+  <div class="test-grid">
+    <!-- Interactive Elements Test -->
+    <div class="test-card">
+      <h3>Interactive Elements (Hover State)</h3>
+      <p>These elements should trigger the hover cursor state with larger size and border.</p>
+      <a href="#" class="test-element">Link Element</a>
+      <button class="test-element">Button Element</button>
+      <div class="test-element interactive">Interactive Div</div>
+      <input type="submit" value="Submit Input" class="test-element">
+      <input type="button" value="Button Input" class="test-element">
+    </div>
+
+    <!-- Magnetic Elements Test -->
+    <div class="test-card">
+      <h3>Magnetic Elements</h3>
+      <p>These elements should attract the cursor and have magnetic effects.</p>
+      <div class="test-element magnetic-element">Magnetic Element</div>
+      <button class="test-element magnetic-element cta-button">CTA Button</button>
+      <div class="test-element magnetic-element social-link">
+        <i class="fas fa-heart"></i>
+      </div>
+    </div>
+
+    <!-- Text Input Elements Test -->
+    <div class="test-card">
+      <h3>Text Input Elements (Text Cursor)</h3>
+      <p>These elements should trigger the text cursor state (vertical line).</p>
+      <input type="text" class="text-input" placeholder="Text input field">
+      <input type="email" class="text-input" placeholder="Email input field">
+      <textarea class="form-textarea" placeholder="Textarea element" rows="3"></textarea>
+    </div>
+
+    <!-- Draggable Elements Test -->
+    <div class="test-card">
+      <h3>Draggable Elements (Drag State)</h3>
+      <p>These elements should trigger the drag cursor state when dragging starts.</p>
+      <div class="draggable-item draggable" draggable="true">Drag Me 1</div>
+      <div class="draggable-item draggable" draggable="true">Drag Me 2</div>
+    </div>
+
+    <!-- Project Cards Test -->
+    <div class="test-card">
+      <h3>Project Cards</h3>
+      <p>These should have magnetic effects and hover states.</p>
+      <div class="project-card magnetic-element">
+        <h4>Project Card 1</h4>
+        <p>This is a test project card with magnetic effects.</p>
+      </div>
+      <div class="project-card magnetic-element">
+        <h4>Project Card 2</h4>
+        <p>Another test project card for cursor interaction.</p>
+      </div>
+    </div>
+
+    <!-- Skill Items Test -->
+    <div class="test-card">
+      <h3>Skill Items</h3>
+      <p>These should trigger hover states for skill interactions.</p>
+      <div class="skill-item interactive">
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-item interactive">
+        <span>React</span>
+      </div>
+      <div class="skill-item interactive">
+        <span>Node.js</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance Test Area -->
+  <div class="test-card" style="margin: 2rem 0;">
+    <h3>Performance Test Area</h3>
+    <p>Move your cursor rapidly around this area to test performance. The cursor should maintain smooth tracking.</p>
+    <div style="height: 200px; background: var(--color-warm-slate); border-radius: var(--radius-md); position: relative;">
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--color-text-secondary);">
+        Rapid Movement Test Zone
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/cursor-system.js"></script>
+  <script>
+    let performanceInterval;
+    let testResults = {
+      loadingState: false,
+      hideShow: false,
+      allStates: false,
+      performance: null
+    };
+
+    function testLoadingState() {
+      if (!window.cursorSystem) {
+        alert('Cursor system not available (likely touch device)');
+        return;
+      }
+      
+      console.log('Testing loading state...');
+      window.cursorSystem.showLoading();
+      
+      setTimeout(() => {
+        window.cursorSystem.hideLoading();
+        testResults.loadingState = true;
+        console.log('✅ Loading state test completed');
+        updateTestResults();
+      }, 3000);
+    }
+
+    function testHideShow() {
+      if (!window.cursorSystem) {
+        alert('Cursor system not available (likely touch device)');
+        return;
+      }
+      
+      console.log('Testing hide/show...');
+      window.cursorSystem.hide();
+      
+      setTimeout(() => {
+        window.cursorSystem.show();
+        testResults.hideShow = true;
+        console.log('✅ Hide/show test completed');
+        updateTestResults();
+      }, 2000);
+    }
+
+    function showPerformanceStats() {
+      if (!window.cursorSystem) {
+        document.getElementById('performance-display').innerHTML = 
+          '<span class="status-indicator status-warning"></span>Cursor system not available (likely touch device)';
+        return;
+      }
+      
+      const stats = window.cursorSystem.getPerformanceStats();
+      testResults.performance = stats;
+      
+      const statusClass = stats.isOptimal ? 'status-good' : 
+                         stats.fps > 30 ? 'status-warning' : 'status-error';
+      
+      document.getElementById('performance-display').innerHTML = `
+        <h4 style="color: var(--color-electric-blue);">Performance Statistics</h4>
+        <div><span class="status-indicator ${statusClass}"></span>FPS: ${stats.fps}</div>
+        <div><span class="status-indicator ${stats.isOptimal ? 'status-good' : 'status-warning'}"></span>Optimal Performance: ${stats.isOptimal}</div>
+        <div><span class="status-indicator status-good"></span>Trail Count: ${stats.trailCount}</div>
+        <div><span class="status-indicator status-good"></span>Magnetic Elements: ${stats.magneticElements}</div>
+      `;
+      
+      console.log('📊 Performance Stats:', stats);
+    }
+
+    function testAllStates() {
+      if (!window.cursorSystem) {
+        alert('Cursor system not available (likely touch device)');
+        return;
+      }
+      
+      console.log('Testing all cursor states...');
+      const states = ['default', 'hover', 'click', 'text', 'drag', 'loading'];
+      let currentIndex = 0;
+      
+      const testNextState = () => {
+        if (currentIndex < states.length) {
+          const state = states[currentIndex];
+          console.log(`Testing state: ${state}`);
+          window.cursorSystem.setCursorState(state);
+          currentIndex++;
+          setTimeout(testNextState, 1000);
+        } else {
+          window.cursorSystem.setCursorState('default');
+          testResults.allStates = true;
+          console.log('✅ All states test completed');
+          updateTestResults();
+        }
+      };
+      
+      testNextState();
+    }
+
+    function stressTest() {
+      if (!window.cursorSystem) {
+        alert('Cursor system not available (likely touch device)');
+        return;
+      }
+      
+      console.log('Starting stress test...');
+      let frameCount = 0;
+      let startTime = performance.now();
+      
+      const stressInterval = setInterval(() => {
+        // Simulate rapid cursor state changes
+        const states = ['default', 'hover', 'click'];
+        const randomState = states[Math.floor(Math.random() * states.length)];
+        window.cursorSystem.setCursorState(randomState);
+        
+        frameCount++;
+        
+        if (frameCount >= 100) {
+          clearInterval(stressInterval);
+          const endTime = performance.now();
+          const duration = endTime - startTime;
+          const avgFps = (frameCount / duration) * 1000;
+          
+          console.log(`✅ Stress test completed: ${frameCount} state changes in ${duration.toFixed(2)}ms`);
+          console.log(`Average FPS during stress test: ${avgFps.toFixed(2)}`);
+          
+          window.cursorSystem.setCursorState('default');
+        }
+      }, 16); // ~60fps
+    }
+
+    function updateTestResults() {
+      console.log('Test Results:', testResults);
+    }
+
+    // Auto-start performance monitoring
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        showPerformanceStats();
+        
+        // Start continuous performance monitoring
+        performanceInterval = setInterval(() => {
+          if (window.cursorSystem) {
+            const stats = window.cursorSystem.getPerformanceStats();
+            if (stats.fps < 30) {
+              console.warn('⚠️ Performance warning: FPS dropped below 30');
+            }
+          }
+        }, 5000);
+      }, 1000);
+    });
+
+    // Test cursor state changes on different elements
+    document.addEventListener('mouseover', (e) => {
+      const element = e.target;
+      console.log(`Mouse over: ${element.tagName}${element.className ? '.' + element.className.split(' ')[0] : ''}`);
+    });
+
+    // Log drag events
+    document.addEventListener('dragstart', (e) => {
+      console.log('Drag started on:', e.target);
+    });
+
+    document.addEventListener('dragend', (e) => {
+      console.log('Drag ended on:', e.target);
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      if (performanceInterval) {
+        clearInterval(performanceInterval);
+      }
+    });
+  </script>
+</body>
+</html>

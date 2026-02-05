@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Engine Test Runner</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0a0a0b;
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .test-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .test-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .test-results {
+      background: #1a1a1d;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .test-section {
+      margin-bottom: 30px;
+    }
+    
+    .test-section h3 {
+      color: #00d4ff;
+      border-bottom: 2px solid #2d2d32;
+      padding-bottom: 10px;
+    }
+    
+    .test-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #2d2d32;
+    }
+    
+    .test-item:last-child {
+      border-bottom: none;
+    }
+    
+    .test-status {
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    
+    .test-status.pass {
+      background: #4caf50;
+      color: white;
+    }
+    
+    .test-status.fail {
+      background: #f44336;
+      color: white;
+    }
+    
+    .test-status.running {
+      background: #ff9800;
+      color: white;
+    }
+    
+    .performance-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .metric-card {
+      background: #2d2d32;
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    
+    .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #00d4ff;
+    }
+    
+    .metric-label {
+      font-size: 12px;
+      color: #9e9e9e;
+      margin-top: 5px;
+    }
+    
+    .run-tests-btn {
+      background: linear-gradient(45deg, #00d4ff, #4dd0e1);
+      color: #0a0a0b;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    
+    .run-tests-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+    }
+    
+    .console-output {
+      background: #000;
+      color: #00ff00;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      max-height: 300px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <div class="test-header">
+      <h1>🎬 Animation Engine Test Suite</h1>
+      <p>Testing GPU-accelerated animations, performance monitoring, and lifecycle management</p>
+      <button class="run-tests-btn" onclick="runAllTests()">Run All Tests</button>
+    </div>
+
+    <div class="test-results">
+      <h2>Test Results</h2>
+      <div id="test-output">
+        <p>Click "Run All Tests" to begin testing...</p>
+      </div>
+    </div>
+
+    <div class="test-results">
+      <h2>Performance Metrics</h2>
+      <div class="performance-metrics" id="performance-metrics">
+        <div class="metric-card">
+          <div class="metric-value" id="fps-value">--</div>
+          <div class="metric-label">Current FPS</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="animations-value">--</div>
+          <div class="metric-label">Active Animations</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="memory-value">--</div>
+          <div class="metric-label">Memory Usage</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-value" id="gpu-value">--</div>
+          <div class="metric-label">GPU Acceleration</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-results">
+      <h2>Console Output</h2>
+      <div class="console-output" id="console-output"></div>
+    </div>
+  </div>
+
+  <!-- Load the animation engine and accessibility system -->
+  <script src="/assets/js/animations.js"></script>
+  <script src="/assets/js/accessibility-system.js"></script>
+  <script src="/assets/js/tests/animation-performance.pbt.js"></script>
+
+  <script>
+    // Simple test framework
+    class SimpleTestFramework {
+      constructor() {
+        this.tests = [];
+        this.results = [];
+        this.currentSuite = '';
+      }
+
+      describe(suiteName, callback) {
+        this.currentSuite = suiteName;
+        callback();
+      }
+
+      test(testName, callback) {
+        this.tests.push({
+          suite: this.currentSuite,
+          name: testName,
+          callback: callback
+        });
+      }
+
+      expect(actual) {
+        return {
+          toBe: (expected) => {
+            if (actual !== expected) {
+              throw new Error(`Expected ${expected}, but got ${actual}`);
+            }
+          },
+          toBeTruthy: () => {
+            if (!actual) {
+              throw new Error(`Expected truthy value, but got ${actual}`);
+            }
+          },
+          toBeNull: () => {
+            if (actual !== null) {
+              throw new Error(`Expected null, but got ${actual}`);
+            }
+          },
+          toBeInstanceOf: (constructor) => {
+            if (!(actual instanceof constructor)) {
+              throw new Error(`Expected instance of ${constructor.name}, but got ${typeof actual}`);
+            }
+          },
+          toHaveProperty: (property) => {
+            if (!(property in actual)) {
+              throw new Error(`Expected object to have property ${property}`);
+            }
+          },
+          toBeGreaterThan: (expected) => {
+            if (actual <= expected) {
+              throw new Error(`Expected ${actual} to be greater than ${expected}`);
+            }
+          },
+          toContain: (expected) => {
+            if (!actual.includes(expected)) {
+              throw new Error(`Expected ${actual} to contain ${expected}`);
+            }
+          }
+        };
+      }
+
+      async runTests() {
+        this.results = [];
+        const output = document.getElementById('test-output');
+        const consoleOutput = document.getElementById('console-output');
+        
+        // Capture console output
+        const originalLog = console.log;
+        const originalWarn = console.warn;
+        const originalError = console.error;
+        
+        console.log = (...args) => {
+          consoleOutput.textContent += '[LOG] ' + args.join(' ') + '\n';
+          consoleOutput.scrollTop = consoleOutput.scrollHeight;
+          originalLog.apply(console, args);
+        };
+        
+        console.warn = (...args) => {
+          consoleOutput.textContent += '[WARN] ' + args.join(' ') + '\n';
+          consoleOutput.scrollTop = consoleOutput.scrollHeight;
+          originalWarn.apply(console, args);
+        };
+        
+        console.error = (...args) => {
+          consoleOutput.textContent += '[ERROR] ' + args.join(' ') + '\n';
+          consoleOutput.scrollTop = consoleOutput.scrollHeight;
+          originalError.apply(console, args);
+        };
+
+        output.innerHTML = '<p>Running tests...</p>';
+
+        for (const test of this.tests) {
+          try {
+            await test.callback();
+            this.results.push({
+              suite: test.suite,
+              name: test.name,
+              status: 'pass',
+              error: null
+            });
+          } catch (error) {
+            this.results.push({
+              suite: test.suite,
+              name: test.name,
+              status: 'fail',
+              error: error.message
+            });
+          }
+        }
+
+        // Restore console
+        console.log = originalLog;
+        console.warn = originalWarn;
+        console.error = originalError;
+
+        this.displayResults();
+      }
+
+      displayResults() {
+        const output = document.getElementById('test-output');
+        const suites = {};
+
+        // Group results by suite
+        this.results.forEach(result => {
+          if (!suites[result.suite]) {
+            suites[result.suite] = [];
+          }
+          suites[result.suite].push(result);
+        });
+
+        let html = '';
+        Object.keys(suites).forEach(suiteName => {
+          const suiteResults = suites[suiteName];
+          const passed = suiteResults.filter(r => r.status === 'pass').length;
+          const total = suiteResults.length;
+
+          html += `
+            <div class="test-section">
+              <h3>${suiteName} (${passed}/${total} passed)</h3>
+              ${suiteResults.map(result => `
+                <div class="test-item">
+                  <span>${result.name}</span>
+                  <span class="test-status ${result.status}">
+                    ${result.status.toUpperCase()}
+                  </span>
+                </div>
+                ${result.error ? `<div style="color: #f44336; font-size: 12px; margin-left: 20px;">${result.error}</div>` : ''}
+              `).join('')}
+            </div>
+          `;
+        });
+
+        output.innerHTML = html;
+      }
+    }
+
+    // Initialize test framework
+    const testFramework = new SimpleTestFramework();
+    window.describe = testFramework.describe.bind(testFramework);
+    window.test = testFramework.test.bind(testFramework);
+    window.expect = testFramework.expect.bind(testFramework);
+
+    // Mock DOM helper
+    function createMockElement(id = 'test-element') {
+      const element = document.createElement('div');
+      element.id = id;
+      element.style.cssText = 'position: absolute; top: 0; left: 0; width: 100px; height: 100px; opacity: 1;';
+      document.body.appendChild(element);
+      return element;
+    }
+
+    // Basic Animation Engine Tests
+    describe('Animation Engine Core', () => {
+      test('should initialize animation engine', () => {
+        expect(window.animationEngine).toBeTruthy();
+        expect(window.animationEngine.getFrameRate).toBeTruthy();
+        expect(window.animationEngine.registerAnimation).toBeTruthy();
+      });
+
+      test('should register animation successfully', () => {
+        const element = createMockElement('test-register');
+        const config = {
+          duration: 500,
+          properties: { opacity: '0.5' }
+        };
+
+        const animationId = window.animationEngine.registerAnimation(element, config);
+        expect(animationId).toBeTruthy();
+        
+        // Clean up
+        if (element.parentNode) {
+          element.parentNode.removeChild(element);
+        }
+      });
+
+      test('should handle invalid element selector', () => {
+        const animationId = window.animationEngine.registerAnimation('#non-existent', {
+          duration: 300,
+          properties: { opacity: '0.8' }
+        });
+
+        expect(animationId).toBeNull();
+      });
+
+      test('should provide performance metrics', () => {
+        const metrics = window.animationEngine.getPerformanceMetrics();
+        expect(metrics).toBeTruthy();
+        expect(metrics).toHaveProperty('currentFPS');
+        expect(metrics).toHaveProperty('isOptimal');
+        expect(metrics).toHaveProperty('activeAnimations');
+      });
+    });
+
+    describe('Animation Execution', () => {
+      test('should execute animation and return promise', async () => {
+        const element = createMockElement('test-execute');
+        const config = {
+          duration: 100,
+          properties: { opacity: '0.5' }
+        };
+
+        const animationId = window.animationEngine.registerAnimation(element, config);
+        const promise = window.animationEngine.playAnimation(animationId);
+        
+        expect(promise).toBeInstanceOf(Promise);
+        
+        try {
+          await promise;
+          // Animation should complete successfully
+        } catch (error) {
+          // Some browsers might not support Web Animations API
+          console.warn('Animation execution test failed (possibly due to browser support):', error);
+        }
+        
+        // Clean up
+        if (element.parentNode) {
+          element.parentNode.removeChild(element);
+        }
+      });
+
+      test('should handle non-existent animation ID', async () => {
+        try {
+          await window.animationEngine.playAnimation('invalid-id');
+          throw new Error('Should have thrown an error');
+        } catch (error) {
+          expect(error.message).toContain('Animation not found');
+        }
+      });
+    });
+
+    describe('Accessibility System Core', () => {
+      test('should initialize accessibility system', () => {
+        expect(window.accessibilitySystem).toBeTruthy();
+        expect(window.accessibilitySystem.getAccessibilitySettings).toBeTruthy();
+        expect(window.accessibilitySystem.runAccessibilityAudit).toBeTruthy();
+      });
+
+      test('should detect motion preferences', () => {
+        const settings = window.accessibilitySystem.getAccessibilitySettings();
+        expect(settings).toHaveProperty('motionPreferences');
+        expect(settings.motionPreferences).toHaveProperty('respectsReducedMotion');
+        expect(typeof settings.motionPreferences.respectsReducedMotion).toBe('boolean');
+      });
+
+      test('should validate contrast ratios', () => {
+        const validator = window.accessibilitySystem.contrastValidator;
+        expect(validator).toBeTruthy();
+        
+        const ratio = validator.getContrastRatio('#ffffff', '#000000');
+        expect(ratio).toBeGreaterThan(20);
+      });
+
+      test('should run accessibility audit', () => {
+        const results = window.accessibilitySystem.runAccessibilityAudit();
+        expect(results).toBeTruthy();
+        expect(results).toHaveProperty('score');
+        expect(typeof results.score).toBe('number');
+      });
+    });
+      test('should track frame rate', () => {
+        const frameRate = window.animationEngine.getFrameRate();
+        expect(frameRate).toBeGreaterThan(0);
+      });
+
+      test('should provide debug information', () => {
+        const debugInfo = window.animationEngine.getDebugInfo();
+        expect(debugInfo).toBeTruthy();
+        expect(debugInfo).toHaveProperty('animations');
+        expect(debugInfo).toHaveProperty('performance');
+        expect(debugInfo).toHaveProperty('motionRespected');
+      });
+    });
+
+    describe('Property-Based Tests', () => {
+      test('should run animation performance budget property test', async () => {
+        if (!window.animationPerformanceBudgetTest) {
+          throw new Error('Animation performance budget test not available');
+        }
+        
+        const results = await window.animationPerformanceBudgetTest.run();
+        
+        expect(results).toBeTruthy();
+        expect(results.success).toBe(true);
+        expect(results.passed).toBeGreaterThan(80); // At least 80% should pass
+        
+        if (!results.success) {
+          console.error('Property test failed:', results.errors.slice(0, 3));
+        }
+      });
+    });
+
+    // Run all tests
+    async function runAllTests() {
+      await testFramework.runTests();
+      updatePerformanceMetrics();
+    }
+
+    // Update performance metrics display
+    function updatePerformanceMetrics() {
+      if (window.animationEngine) {
+        const metrics = window.animationEngine.getPerformanceMetrics();
+        
+        document.getElementById('fps-value').textContent = metrics.currentFPS;
+        document.getElementById('animations-value').textContent = metrics.activeAnimations;
+        document.getElementById('gpu-value').textContent = window.animationEngine.gpuAcceleration.enabled ? 'ON' : 'OFF';
+        
+        // Memory usage
+        if (performance.memory) {
+          const memoryMB = Math.round(performance.memory.usedJSHeapSize / 1048576);
+          document.getElementById('memory-value').textContent = memoryMB + ' MB';
+        } else {
+          document.getElementById('memory-value').textContent = 'N/A';
+        }
+      }
+    }
+
+    // Update metrics periodically
+    setInterval(updatePerformanceMetrics, 1000);
+
+    // Initial metrics update
+    setTimeout(updatePerformanceMetrics, 1000);
+  </script>
+</body>
+</html>

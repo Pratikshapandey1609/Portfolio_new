@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Skill Proficiency Property-Based Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0b;
+            color: #ffffff;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .test-results {
+            background: #1a1a1b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .test-status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        
+        .test-passed {
+            background: #1b5e20;
+            color: #c8e6c9;
+        }
+        
+        .test-failed {
+            background: #c62828;
+            color: #ffcdd2;
+        }
+        
+        .test-running {
+            background: #f57c00;
+            color: #ffe0b2;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #2a2a2b;
+            border-radius: 8px;
+            margin: 8px 0;
+        }
+        
+        .skill-icon {
+            width: 32px;
+            height: 32px;
+            background: #00d4ff;
+            border-radius: 4px;
+        }
+        
+        .skill-name {
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .skill-level {
+            flex: 1;
+            height: 8px;
+            background: #404040;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 12px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #4dd0e1);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .skill-percentage {
+            font-size: 14px;
+            color: #b3b3b3;
+            min-width: 40px;
+            text-align: right;
+        }
+        
+        .run-button {
+            background: #00d4ff;
+            color: #0a0a0b;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        
+        .run-button:hover {
+            background: #4dd0e1;
+        }
+        
+        .run-button:disabled {
+            background: #404040;
+            color: #808080;
+            cursor: not-allowed;
+        }
+        
+        .log-output {
+            background: #000;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #404040;
+            border-radius: 2px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #00d4ff;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 Visual Skill Proficiency Property-Based Test</h1>
+            <p><strong>Property 12: Visual Skill Proficiency</strong></p>
+            <p>Validates: Requirements 5.2 - Visual skill proficiency representations</p>
+        </div>
+        
+        <div class="test-controls">
+            <button id="runTestBtn" class="run-button">Run Property Tests</button>
+            <button id="testExistingBtn" class="run-button">Test Existing Skills</button>
+            <button id="clearLogBtn" class="run-button">Clear Log</button>
+        </div>
+        
+        <div class="progress-bar">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+        
+        <div id="testStatus" class="test-status test-running" style="display: none;">
+            Running tests...
+        </div>
+        
+        <div id="testResults" class="test-results" style="display: none;">
+            <h3>Test Results</h3>
+            <div id="resultsContent"></div>
+        </div>
+        
+        <div class="test-results">
+            <h3>Test Log</h3>
+            <div id="logOutput" class="log-output"></div>
+        </div>
+    </div>
+
+    <!-- Load the property-based test -->
+    <script src="/assets/js/tests/visual-skill-proficiency.pbt.js"></script>
+    
+    <script>
+        // Test UI Controller
+        class TestUIController {
+            constructor() {
+                this.logOutput = document.getElementById('logOutput');
+                this.testStatus = document.getElementById('testStatus');
+                this.testResults = document.getElementById('testResults');
+                this.resultsContent = document.getElementById('resultsContent');
+                this.progressFill = document.getElementById('progressFill');
+                this.runTestBtn = document.getElementById('runTestBtn');
+                this.testExistingBtn = document.getElementById('testExistingBtn');
+                this.clearLogBtn = document.getElementById('clearLogBtn');
+                
+                this.bindEvents();
+                this.log('🚀 Visual Skill Proficiency Test UI loaded');
+            }
+            
+            bindEvents() {
+                this.runTestBtn.addEventListener('click', () => this.runPropertyTests());
+                this.testExistingBtn.addEventListener('click', () => this.testExistingSkills());
+                this.clearLogBtn.addEventListener('click', () => this.clearLog());
+            }
+            
+            log(message) {
+                const timestamp = new Date().toLocaleTimeString();
+                this.logOutput.textContent += `[${timestamp}] ${message}\n`;
+                this.logOutput.scrollTop = this.logOutput.scrollHeight;
+            }
+            
+            clearLog() {
+                this.logOutput.textContent = '';
+            }
+            
+            updateProgress(percent) {
+                this.progressFill.style.width = `${percent}%`;
+            }
+            
+            showStatus(message, type = 'running') {
+                this.testStatus.style.display = 'block';
+                this.testStatus.textContent = message;
+                this.testStatus.className = `test-status test-${type}`;
+            }
+            
+            hideStatus() {
+                this.testStatus.style.display = 'none';
+            }
+            
+            showResults(results) {
+                this.testResults.style.display = 'block';
+                
+                const passRate = (results.passed / results.totalTests * 100).toFixed(2);
+                const status = results.failed === 0 ? 'passed' : 'failed';
+                
+                this.resultsContent.innerHTML = `
+                    <div class="test-${status}">
+                        <h4>Overall Result: ${results.failed === 0 ? '✅ PASSED' : '❌ FAILED'}</h4>
+                        <p><strong>Total Tests:</strong> ${results.totalTests}</p>
+                        <p><strong>Passed:</strong> ${results.passed}</p>
+                        <p><strong>Failed:</strong> ${results.failed}</p>
+                        <p><strong>Pass Rate:</strong> ${passRate}%</p>
+                    </div>
+                    
+                    ${results.failed > 0 ? `
+                        <div style="margin-top: 20px;">
+                            <h4>Failures:</h4>
+                            ${results.errors.slice(0, 5).map(error => `
+                                <div style="background: #2a1a1a; padding: 10px; margin: 5px 0; border-radius: 4px;">
+                                    <strong>${error.property}</strong> (Iteration ${error.iteration})<br>
+                                    <small>${error.error}</small>
+                                </div>
+                            `).join('')}
+                            ${results.errors.length > 5 ? `<p>... and ${results.errors.length - 5} more failures</p>` : ''}
+                        </div>
+                    ` : ''}
+                `;
+            }
+            
+            async runPropertyTests() {
+                this.runTestBtn.disabled = true;
+                this.testExistingBtn.disabled = true;
+                this.showStatus('Running property-based tests...', 'running');
+                this.updateProgress(0);
+                
+                try {
+                    this.log('🧪 Starting Visual Skill Proficiency Property-Based Tests');
+                    
+                    // Override console.log to capture test output
+                    const originalLog = console.log;
+                    console.log = (...args) => {
+                        this.log(args.join(' '));
+                        originalLog(...args);
+                    };
+                    
+                    // Create and run tests
+                    const tester = new VisualSkillProficiencyTest();
+                    
+                    // Track progress
+                    let completedTests = 0;
+                    const totalExpectedTests = 400; // 4 properties × 100 iterations
+                    
+                    const originalRunProperty = tester.runProperty.bind(tester);
+                    tester.runProperty = async function(propertyName, propertyTest, iterations = 100) {
+                        const result = await originalRunProperty(propertyName, propertyTest, iterations);
+                        completedTests += iterations;
+                        const progress = (completedTests / totalExpectedTests) * 100;
+                        testUI.updateProgress(Math.min(progress, 100));
+                        return result;
+                    };
+                    
+                    const results = await tester.runAllProperties();
+                    
+                    // Restore console.log
+                    console.log = originalLog;
+                    
+                    this.updateProgress(100);
+                    this.showResults(results);
+                    
+                    if (results.failed === 0) {
+                        this.showStatus('✅ All property tests passed!', 'passed');
+                        this.log('🎉 All visual skill proficiency properties validated successfully!');
+                    } else {
+                        this.showStatus(`❌ ${results.failed} tests failed`, 'failed');
+                        this.log(`⚠️ ${results.failed} property tests failed - check implementation`);
+                    }
+                    
+                } catch (error) {
+                    this.log(`❌ Test execution error: ${error.message}`);
+                    this.showStatus('❌ Test execution failed', 'failed');
+                    console.error('Test error:', error);
+                } finally {
+                    this.runTestBtn.disabled = false;
+                    this.testExistingBtn.disabled = false;
+                }
+            }
+            
+            async testExistingSkills() {
+                this.testExistingBtn.disabled = true;
+                this.showStatus('Testing existing skills in DOM...', 'running');
+                
+                try {
+                    this.log('🔍 Testing existing skills in current page...');
+                    
+                    // Check if we're on the main portfolio page
+                    if (window.location.pathname !== '/' && !window.location.pathname.includes('index.html')) {
+                        this.log('⚠️ Not on main portfolio page - loading skills from main page...');
+                        
+                        // Try to fetch and test skills from main page
+                        const response = await fetch('/');
+                        const html = await response.text();
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const skills = doc.querySelectorAll('.skill-item');
+                        
+                        this.log(`📊 Found ${skills.length} skills in main page`);
+                        
+                        if (skills.length === 0) {
+                            this.log('❌ No skills found in main page');
+                            this.showStatus('❌ No skills found to test', 'failed');
+                            return;
+                        }
+                        
+                        // Test each skill structure
+                        let passed = 0;
+                        let failed = 0;
+                        
+                        skills.forEach((skill, index) => {
+                            const skillName = skill.querySelector('.skill-name')?.textContent || `Skill ${index + 1}`;
+                            const hasProgressBar = !!skill.querySelector('.skill-progress');
+                            const hasPercentage = !!skill.querySelector('.skill-percentage');
+                            const hasLevel = !!skill.querySelector('.skill-level');
+                            const hasDataSkill = skill.hasAttribute('data-skill');
+                            
+                            if (hasProgressBar && hasPercentage && hasLevel && hasDataSkill) {
+                                passed++;
+                                this.log(`✅ ${skillName}: All visual proficiency indicators present`);
+                            } else {
+                                failed++;
+                                const missing = [];
+                                if (!hasProgressBar) missing.push('progress bar');
+                                if (!hasPercentage) missing.push('percentage');
+                                if (!hasLevel) missing.push('level container');
+                                if (!hasDataSkill) missing.push('data-skill attribute');
+                                this.log(`❌ ${skillName}: Missing ${missing.join(', ')}`);
+                            }
+                        });
+                        
+                        const passRate = (passed / skills.length * 100).toFixed(2);
+                        this.log(`📊 Existing Skills Test: ${passed}/${skills.length} passed (${passRate}%)`);
+                        
+                        if (failed === 0) {
+                            this.showStatus('✅ All existing skills have proper visual indicators', 'passed');
+                        } else {
+                            this.showStatus(`❌ ${failed} skills missing visual indicators`, 'failed');
+                        }
+                        
+                    } else {
+                        // We're on the main page, test directly
+                        const skills = document.querySelectorAll('.skill-item');
+                        this.log(`📊 Found ${skills.length} skills in current page`);
+                        
+                        if (skills.length === 0) {
+                            this.log('❌ No skills found in current page');
+                            this.showStatus('❌ No skills found to test', 'failed');
+                            return;
+                        }
+                        
+                        // Run the existing skills test from the PBT
+                        const tester = new VisualSkillProficiencyTest();
+                        const results = await tester.testExistingSkills();
+                        
+                        if (results.failed === 0) {
+                            this.showStatus('✅ All existing skills passed validation', 'passed');
+                        } else {
+                            this.showStatus(`❌ ${results.failed} existing skills failed`, 'failed');
+                        }
+                    }
+                    
+                } catch (error) {
+                    this.log(`❌ Error testing existing skills: ${error.message}`);
+                    this.showStatus('❌ Failed to test existing skills', 'failed');
+                    console.error('Existing skills test error:', error);
+                } finally {
+                    this.testExistingBtn.disabled = false;
+                }
+            }
+        }
+        
+        // Initialize test UI
+        const testUI = new TestUIController();
+        
+        // Auto-run tests if requested via URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('autorun') === 'true') {
+            setTimeout(() => testUI.runPropertyTests(), 1000);
+        }
+    </script>
+</body>
+</html>

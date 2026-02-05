@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property-Based Test Runner</title>
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #0a0a0b;
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    .test-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .test-output {
+      background: #1a1a1d;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+    
+    .run-btn {
+      background: linear-gradient(45deg, #00d4ff, #4dd0e1);
+      color: #0a0a0b;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 10px 0;
+    }
+    
+    .status {
+      padding: 8px 16px;
+      border-radius: 4px;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+    
+    .status.pass {
+      background: #4caf50;
+      color: white;
+    }
+    
+    .status.fail {
+      background: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="test-container">
+    <h1>🧪 Property-Based Test: Animation Performance Budget</h1>
+    <p><strong>Property 3:</strong> Animation Performance Budget</p>
+    <p><strong>Validates:</strong> Requirements 2.1, 2.6</p>
+    
+    <button class="run-btn" onclick="runTest()">Run Property-Based Test</button>
+    
+    <div id="status"></div>
+    <div id="output" class="test-output"></div>
+  </div>
+
+  <!-- Load dependencies -->
+  <script src="/assets/js/animations.js"></script>
+  <script src="/assets/js/accessibility-system.js"></script>
+  <script src="/assets/js/tests/animation-performance.pbt.js"></script>
+
+  <script>
+    async function runTest() {
+      const statusDiv = document.getElementById('status');
+      const outputDiv = document.getElementById('output');
+      
+      statusDiv.innerHTML = '<div class="status">Running test...</div>';
+      outputDiv.textContent = 'Initializing property-based test...\n';
+      
+      try {
+        // Wait for DOM to be ready and scripts to load
+        await new Promise(resolve => {
+          if (document.readyState === 'complete') {
+            resolve();
+          } else {
+            window.addEventListener('load', resolve);
+          }
+        });
+        
+        // Wait a bit more for animation engine initialization
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        outputDiv.textContent += 'Checking animation engine availability...\n';
+        
+        // Check if animation engine is available
+        if (!window.animationEngine) {
+          outputDiv.textContent += 'Animation engine not found, attempting to initialize...\n';
+          
+          // Try to initialize animation engine manually
+          if (window.AnimationEngine) {
+            window.animationEngine = new AnimationEngine();
+            outputDiv.textContent += 'Animation engine initialized manually\n';
+          } else {
+            throw new Error('AnimationEngine class not available');
+          }
+        }
+        
+        outputDiv.textContent += 'Animation engine ready\n';
+        outputDiv.textContent += 'Starting property-based test with 100 iterations...\n\n';
+        
+        const results = await window.runAnimationPerformanceTest();
+        
+        if (results.success) {
+          statusDiv.innerHTML = '<div class="status pass">✅ TEST PASSED</div>';
+        } else {
+          statusDiv.innerHTML = '<div class="status fail">❌ TEST FAILED</div>';
+        }
+        
+      } catch (error) {
+        statusDiv.innerHTML = '<div class="status fail">❌ TEST ERROR</div>';
+        outputDiv.textContent += `\nERROR: ${error.message}\n`;
+        outputDiv.textContent += `Stack: ${error.stack}\n`;
+        
+        // Log available global objects for debugging
+        outputDiv.textContent += '\nAvailable global objects:\n';
+        outputDiv.textContent += `- AnimationEngine: ${typeof window.AnimationEngine}\n`;
+        outputDiv.textContent += `- animationEngine: ${typeof window.animationEngine}\n`;
+        outputDiv.textContent += `- runAnimationPerformanceTest: ${typeof window.runAnimationPerformanceTest}\n`;
+      }
+    }
+    
+    // Auto-run test after page loads
+    window.addEventListener('load', () => {
+      setTimeout(runTest, 3000); // Increased delay
+    });
+  </script>
+</body>
+</html>

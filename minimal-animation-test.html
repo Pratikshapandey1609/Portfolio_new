@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minimal Animation Test</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #0a0a0b;
+      color: #ffffff;
+      padding: 20px;
+    }
+    .test-element {
+      width: 100px;
+      height: 100px;
+      background: #00d4ff;
+      margin: 20px 0;
+      opacity: 1;
+    }
+    .output {
+      background: #1a1a1d;
+      padding: 15px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Minimal Animation Engine Test</h1>
+  <div class="test-element" id="testElement"></div>
+  <div id="output" class="output">Starting test...</div>
+
+  <script src="/assets/js/animations.js"></script>
+  
+  <script>
+    const output = document.getElementById('output');
+    
+    function log(message) {
+      output.textContent += message + '\n';
+      console.log(message);
+    }
+    
+    async function runMinimalTest() {
+      try {
+        log('Checking animation engine...');
+        
+        // Wait for initialization
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        log('AnimationEngine class: ' + typeof window.AnimationEngine);
+        log('animationEngine instance: ' + typeof window.animationEngine);
+        
+        if (!window.animationEngine) {
+          if (window.AnimationEngine) {
+            log('Creating animation engine instance...');
+            window.animationEngine = new window.AnimationEngine();
+            log('Animation engine created successfully');
+          } else {
+            throw new Error('AnimationEngine class not available');
+          }
+        }
+        
+        const element = document.getElementById('testElement');
+        
+        log('Registering animation...');
+        const animationId = window.animationEngine.registerAnimation(element, {
+          duration: 1000,
+          properties: {
+            opacity: '0.5',
+            transform: 'translateX(100px)'
+          }
+        });
+        
+        if (!animationId) {
+          throw new Error('Failed to register animation');
+        }
+        
+        log('Animation registered with ID: ' + animationId);
+        
+        log('Playing animation...');
+        const result = await window.animationEngine.playAnimation(animationId);
+        
+        log('Animation completed successfully!');
+        log('Animation state: ' + result.state);
+        
+        // Get performance metrics
+        const metrics = window.animationEngine.getPerformanceMetrics();
+        log('Current FPS: ' + metrics.currentFPS);
+        log('Active animations: ' + metrics.activeAnimations);
+        
+        log('\n✅ MINIMAL TEST PASSED');
+        
+        return true;
+        
+      } catch (error) {
+        log('\n❌ TEST FAILED: ' + error.message);
+        log('Stack: ' + error.stack);
+        return false;
+      }
+    }
+    
+    // Run test when page loads
+    window.addEventListener('load', () => {
+      setTimeout(runMinimalTest, 1000);
+    });
+  </script>
+</body>
+</html>

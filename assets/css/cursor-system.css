@@ -1,0 +1,503 @@
+/* ===================================
+   PREMIUM CURSOR SYSTEM
+   ================================== */
+
+/* Hide default cursor */
+* {
+  cursor: none !important;
+}
+
+/* Custom Cursor Container */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: var(--color-electric-blue);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  mix-blend-mode: difference;
+  transition: all var(--duration-fast) var(--ease-out);
+  transform: translate(-50%, -50%);
+}
+
+/* Device-specific cursor optimizations */
+.cursor.hybrid-device {
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.cursor.low-performance {
+  transition: transform var(--duration-normal) var(--ease-out);
+  will-change: transform;
+}
+
+/* Cursor Dot (Inner) */
+.cursor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transform: translate(-50%, -50%);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+/* Cursor Trail */
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--color-soft-cyan);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  z-index: calc(var(--z-cursor) - 1);
+  opacity: 0.6;
+  transform: translate(-50%, -50%);
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* Performance optimized trails */
+.cursor-trail.low-performance {
+  transition: transform var(--duration-slow) var(--ease-out);
+  will-change: transform, opacity;
+}
+
+/* === CURSOR STATES === */
+
+/* Default State */
+.cursor.default {
+  width: 20px;
+  height: 20px;
+  background: var(--color-electric-blue);
+  opacity: 1;
+}
+
+/* Hover State - Interactive Elements */
+.cursor.hover {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid var(--color-electric-blue);
+  opacity: 0.8;
+}
+
+.cursor.hover::before {
+  width: 6px;
+  height: 6px;
+  background: var(--color-electric-blue);
+}
+
+/* Click State */
+.cursor.click {
+  width: 16px;
+  height: 16px;
+  background: var(--color-muted-gold);
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* Text State */
+.cursor.text {
+  width: 2px;
+  height: 24px;
+  background: var(--color-text-primary);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+.cursor.text::before {
+  display: none;
+}
+
+/* Drag State */
+.cursor.drag {
+  width: 32px;
+  height: 32px;
+  background: var(--color-muted-gold);
+  opacity: 0.7;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Loading State */
+.cursor.loading {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 2px solid var(--color-electric-blue);
+  border-top: 2px solid transparent;
+  animation: cursor-spin var(--duration-ambient) linear infinite;
+}
+
+.cursor.loading::before {
+  display: none;
+}
+
+/* Hidden State */
+.cursor.hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Disabled State */
+.cursor.disabled {
+  width: 20px;
+  height: 20px;
+  background: var(--color-text-tertiary);
+  opacity: 0.5;
+}
+
+.cursor.disabled::before {
+  background: var(--color-text-tertiary);
+}
+
+/* Success State */
+.cursor.success {
+  width: 24px;
+  height: 24px;
+  background: #4caf50;
+  opacity: 0.9;
+  animation: cursor-pulse var(--duration-normal) ease-out;
+}
+
+.cursor.success::before {
+  display: none;
+}
+
+/* Error State */
+.cursor.error {
+  width: 24px;
+  height: 24px;
+  background: #f44336;
+  opacity: 0.9;
+  animation: cursor-pulse var(--duration-normal) ease-out;
+}
+
+.cursor.error::before {
+  display: none;
+}
+
+/* === CURSOR ANIMATIONS === */
+
+@keyframes cursor-spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes cursor-pulse {
+  0%, 100% { 
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+/* Magnetic Effect */
+.cursor.magnetic {
+  transition: all var(--duration-micro) var(--ease-out);
+}
+
+/* === INTERACTIVE ELEMENT STYLES === */
+
+/* Links and Buttons */
+a, button, .btn, .interactive {
+  position: relative;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+a:hover, button:hover, .btn:hover, .interactive:hover {
+  transform: translateY(-2px);
+}
+
+/* Magnetic Elements */
+.magnetic-element {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.magnetic-element:hover {
+  transform: scale(1.05);
+}
+
+/* === CURSOR TRAIL VARIATIONS === */
+
+.cursor-trail.fade {
+  opacity: 0.3;
+  transition: all var(--duration-slow) var(--ease-out);
+}
+
+.cursor-trail.small {
+  width: 4px;
+  height: 4px;
+}
+
+.cursor-trail.large {
+  width: 12px;
+  height: 12px;
+}
+
+/* === TOUCH DEVICE OPTIMIZATIONS === */
+
+/* Touch-only device styles */
+.touch-only-device * {
+  cursor: auto !important;
+}
+
+.touch-only-device .interactive,
+.touch-only-device button,
+.touch-only-device a,
+.touch-only-device .btn {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Touch target optimization */
+.touch-optimized {
+  position: relative;
+  isolation: isolate;
+}
+
+.touch-optimized::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 44px;
+  min-height: 44px;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* Touch feedback styles */
+.touch-feedback {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 212, 255, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: touch-ripple 0.6s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes touch-ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Active touch states */
+.touch-only-device .interactive:active,
+.touch-only-device button:active,
+.touch-only-device a:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-out;
+}
+
+/* === HYBRID DEVICE SUPPORT === */
+
+/* Hybrid devices (touch + hover) */
+@media (hover: hover) and (pointer: coarse) {
+  .cursor.hybrid-device {
+    transition: opacity var(--duration-fast) var(--ease-out);
+  }
+  
+  /* Larger touch targets for hybrid devices */
+  .interactive,
+  button,
+  a,
+  .btn {
+    min-height: 36px;
+    padding: 8px 12px;
+  }
+}
+
+/* === DEVICE-SPECIFIC MEDIA QUERIES === */
+
+/* Touch devices - hide custom cursor */
+@media (hover: none) and (pointer: coarse) {
+  .cursor,
+  .cursor-trail {
+    display: none !important;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+  
+  /* Enhanced touch interactions */
+  .interactive:active,
+  button:active,
+  a:active {
+    background-color: rgba(0, 212, 255, 0.1);
+    transform: scale(0.98);
+  }
+}
+
+/* Stylus/pen input devices */
+@media (hover: hover) and (pointer: coarse) {
+  .cursor {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .cursor.hover {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* High-precision pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  .cursor {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .cursor.hover {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* === PERFORMANCE-BASED OPTIMIZATIONS === */
+
+/* Low-performance device optimizations */
+@media (max-width: 768px) and (max-height: 1024px) {
+  .cursor-trail {
+    display: none;
+  }
+  
+  .cursor {
+    transition: transform var(--duration-normal) linear;
+  }
+  
+  .magnetic-element {
+    transition: none;
+  }
+}
+
+/* Reduced data mode */
+@media (prefers-reduced-data: reduce) {
+  .cursor-trail {
+    display: none;
+  }
+  
+  .cursor.loading {
+    animation: none;
+    border: 2px solid var(--color-electric-blue);
+  }
+}
+
+/* === ACCESSIBILITY ENHANCEMENTS === */
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .cursor,
+  .cursor-trail {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .cursor.loading {
+    animation: none !important;
+    border: 2px solid var(--color-electric-blue);
+  }
+  
+  .touch-feedback {
+    animation: none !important;
+    opacity: 0.3;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .cursor {
+    background: white;
+    border: 2px solid black;
+    mix-blend-mode: normal;
+  }
+  
+  .cursor::before {
+    background: black;
+  }
+  
+  .cursor-trail {
+    background: white;
+    border: 1px solid black;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .cursor {
+    mix-blend-mode: screen;
+  }
+}
+
+/* Light mode adjustments */
+@media (prefers-color-scheme: light) {
+  .cursor {
+    mix-blend-mode: multiply;
+  }
+}
+
+/* === CURSOR INTERACTION ZONES === */
+
+/* Navigation Links */
+nav a {
+  --cursor-magnetic-strength: 0.3;
+}
+
+/* Project Cards */
+.project-card {
+  --cursor-magnetic-strength: 0.5;
+}
+
+/* Call-to-Action Buttons */
+.cta-button {
+  --cursor-magnetic-strength: 0.7;
+}
+
+/* Social Links */
+.social-link {
+  --cursor-magnetic-strength: 0.4;
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+
+/* Use GPU acceleration for smooth animations */
+.cursor,
+.cursor-trail {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize for 60fps */
+.cursor {
+  transform-origin: center center;
+}
+
+/* Reduce paint operations */
+.cursor,
+.cursor-trail {
+  contain: layout style paint;
+}

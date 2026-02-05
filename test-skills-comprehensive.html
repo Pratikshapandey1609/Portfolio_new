@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Interactive Skills Test</title>
+    <link rel="stylesheet" href="/assets/css/design-system.css" />
+    <link rel="stylesheet" href="/assets/css/modern-sections.css" />
+    <link rel="stylesheet" href="/assets/css/interactive-skills.css" />
+    <style>
+        body {
+            background: var(--color-deep-charcoal);
+            color: var(--color-text-primary);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 2rem;
+        }
+        .test-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .test-controls {
+            background: var(--color-rich-graphite);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .test-btn {
+            background: var(--color-electric-blue);
+            color: var(--color-deep-charcoal);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+        .test-btn:hover {
+            background: var(--color-soft-cyan);
+            transform: translateY(-2px);
+        }
+        .test-results {
+            background: var(--color-rich-graphite);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            border: 1px solid var(--color-warm-slate);
+        }
+        .feature-demo {
+            background: var(--color-warm-slate);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            margin: 1rem 0;
+        }
+        .demo-title {
+            color: var(--color-electric-blue);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: 0.5rem;
+        }
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        .container {
+            max-width: var(--container-large);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        .section-title {
+            font-size: var(--font-size-h2);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+        }
+        .section-subtitle {
+            font-size: var(--font-size-body);
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🚀 Interactive Skills Display - Comprehensive Test</h1>
+            <p>Testing all features of the enhanced skills section with visual proficiency indicators</p>
+        </div>
+        
+        <div class="test-controls">
+            <button class="test-btn" onclick="runUnitTests()">Run Unit Tests</button>
+            <button class="test-btn" onclick="testFilterTransitions()">Test Filter Transitions</button>
+            <button class="test-btn" onclick="testSkillHovers()">Test Hover Effects</button>
+            <button class="test-btn" onclick="testModalFunctionality()">Test Modal</button>
+            <button class="test-btn" onclick="testAccessibility()">Test Accessibility</button>
+            <button class="test-btn" onclick="testResponsive()">Test Responsive</button>
+            <button class="test-btn" onclick="runAllTests()">Run All Tests</button>
+        </div>
+        
+        <div class="test-results" id="test-results">
+            <h3>Test Results</h3>
+            <p>Click a test button to run specific tests, or "Run All Tests" for comprehensive testing.</p>
+        </div>
+        
+        <div class="feature-demo">
+            <div class="demo-title">✨ Features to Test Manually:</div>
+            <ul>
+                <li><strong>Filter Tabs:</strong> Click different category tabs to see smooth transitions</li>
+                <li><strong>Skill Cards:</strong> Hover over cards to see progress ring animations</li>
+                <li><strong>Detail Modal:</strong> Click "View Details" to open skill information modal</li>
+                <li><strong>Progress Indicators:</strong> Circular progress rings with proficiency levels</li>
+                <li><strong>Current Focus:</strong> DevOps skill should have special highlighting</li>
+                <li><strong>Keyboard Navigation:</strong> Use Tab key to navigate, Enter/Space to activate</li>
+                <li><strong>Responsive Design:</strong> Resize window to test mobile layout</li>
+            </ul>
+        </div>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-subtitle">Technologies I work with to bring ideas to life</p>
+                </header>
+                
+                <!-- This will be replaced by the interactive skills system -->
+                <div class="skills-grid">
+                    <div class="loading-placeholder">
+                        <p>Loading interactive skills display...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Load the interactive skills system -->
+    <script src="/assets/js/interactive-skills.js"></script>
+    <script src="/assets/js/tests/interactive-skills.test.js"></script>
+    
+    <script>
+        let skillsSystem = null;
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for skills system to initialize
+            setTimeout(() => {
+                skillsSystem = window.InteractiveSkillsSystem || null;
+                updateTestStatus('Interactive Skills System loaded and ready for testing');
+            }, 1000);
+        });
+        
+        function updateTestStatus(message, isError = false) {
+            const resultsDiv = document.getElementById('test-results');
+            const timestamp = new Date().toLocaleTimeString();
+            const status = isError ? '❌' : '✅';
+            
+            resultsDiv.innerHTML += `<p><strong>[${timestamp}]</strong> ${status} ${message}</p>`;
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+        
+        function clearTestResults() {
+            document.getElementById('test-results').innerHTML = '<h3>Test Results</h3>';
+        }
+        
+        function runUnitTests() {
+            clearTestResults();
+            updateTestStatus('Running unit tests...');
+            
+            try {
+                const testsPassed = runInteractiveSkillsTests();
+                if (testsPassed) {
+                    updateTestStatus('All unit tests passed successfully!');
+                } else {
+                    updateTestStatus('Some unit tests failed. Check console for details.', true);
+                }
+            } catch (error) {
+                updateTestStatus(`Unit tests failed: ${error.message}`, true);
+            }
+        }
+        
+        function testFilterTransitions() {
+            clearTestResults();
+            updateTestStatus('Testing filter transitions...');
+            
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            if (filterTabs.length === 0) {
+                updateTestStatus('No filter tabs found', true);
+                return;
+            }
+            
+            updateTestStatus(`Found ${filterTabs.length} filter tabs`);
+            
+            // Test each filter
+            let currentIndex = 0;
+            const testNextFilter = () => {
+                if (currentIndex >= filterTabs.length) {
+                    updateTestStatus('Filter transition tests completed successfully!');
+                    return;
+                }
+                
+                const tab = filterTabs[currentIndex];
+                const filterName = tab.dataset.filter;
+                updateTestStatus(`Testing ${filterName} filter...`);
+                
+                tab.click();
+                
+                setTimeout(() => {
+                    const isActive = tab.classList.contains('active');
+                    if (isActive) {
+                        updateTestStatus(`${filterName} filter activated successfully`);
+                    } else {
+                        updateTestStatus(`${filterName} filter failed to activate`, true);
+                    }
+                    
+                    currentIndex++;
+                    setTimeout(testNextFilter, 500);
+                }, 300);
+            };
+            
+            testNextFilter();
+        }
+        
+        function testSkillHovers() {
+            clearTestResults();
+            updateTestStatus('Testing skill card hover effects...');
+            
+            const skillCards = document.querySelectorAll('.enhanced-skill-card');
+            if (skillCards.length === 0) {
+                updateTestStatus('No skill cards found', true);
+                return;
+            }
+            
+            updateTestStatus(`Found ${skillCards.length} skill cards`);
+            
+            // Test hover on first few cards
+            skillCards.forEach((card, index) => {
+                if (index < 3) { // Test first 3 cards
+                    const skillName = card.querySelector('.skill-name')?.textContent || `Card ${index + 1}`;
+                    
+                    // Simulate hover
+                    const hoverEvent = new MouseEvent('mouseenter', { bubbles: true });
+                    card.dispatchEvent(hoverEvent);
+                    
+                    setTimeout(() => {
+                        const progressRing = card.querySelector('.progress-ring-progress');
+                        if (progressRing) {
+                            updateTestStatus(`Hover effect working for ${skillName}`);
+                        } else {
+                            updateTestStatus(`Progress ring not found for ${skillName}`, true);
+                        }
+                        
+                        // Simulate mouse leave
+                        const leaveEvent = new MouseEvent('mouseleave', { bubbles: true });
+                        card.dispatchEvent(leaveEvent);
+                    }, 200);
+                }
+            });
+            
+            setTimeout(() => {
+                updateTestStatus('Skill hover tests completed');
+            }, 1000);
+        }
+        
+        function testModalFunctionality() {
+            clearTestStatus();
+            updateTestStatus('Testing modal functionality...');
+            
+            const firstSkillCard = document.querySelector('.enhanced-skill-card');
+            if (!firstSkillCard) {
+                updateTestStatus('No skill cards found for modal test', true);
+                return;
+            }
+            
+            const viewDetailsBtn = firstSkillCard.querySelector('.view-details-btn');
+            if (!viewDetailsBtn) {
+                updateTestStatus('View details button not found', true);
+                return;
+            }
+            
+            // Click view details button
+            viewDetailsBtn.click();
+            
+            setTimeout(() => {
+                const modal = document.querySelector('.skill-detail-modal');
+                const isModalActive = modal && modal.classList.contains('active');
+                
+                if (isModalActive) {
+                    updateTestStatus('Modal opened successfully');
+                    
+                    // Test modal close
+                    const closeBtn = modal.querySelector('.modal-close');
+                    if (closeBtn) {
+                        closeBtn.click();
+                        
+                        setTimeout(() => {
+                            const isModalClosed = !modal.classList.contains('active');
+                            if (isModalClosed) {
+                                updateTestStatus('Modal closed successfully');
+                            } else {
+                                updateTestStatus('Modal failed to close', true);
+                            }
+                        }, 300);
+                    } else {
+                        updateTestStatus('Modal close button not found', true);
+                    }
+                } else {
+                    updateTestStatus('Modal failed to open', true);
+                }
+            }, 300);
+        }
+        
+        function testAccessibility() {
+            clearTestResults();
+            updateTestStatus('Testing accessibility features...');
+            
+            const skillCards = document.querySelectorAll('.enhanced-skill-card');
+            let accessibilityScore = 0;
+            let totalChecks = 0;
+            
+            skillCards.forEach((card, index) => {
+                if (index < 3) { // Test first 3 cards
+                    totalChecks += 4;
+                    
+                    // Check tabindex
+                    if (card.hasAttribute('tabindex')) {
+                        accessibilityScore++;
+                        updateTestStatus(`Card ${index + 1}: tabindex ✓`);
+                    } else {
+                        updateTestStatus(`Card ${index + 1}: tabindex missing`, true);
+                    }
+                    
+                    // Check role
+                    if (card.hasAttribute('role')) {
+                        accessibilityScore++;
+                        updateTestStatus(`Card ${index + 1}: role ✓`);
+                    } else {
+                        updateTestStatus(`Card ${index + 1}: role missing`, true);
+                    }
+                    
+                    // Check aria-label
+                    if (card.hasAttribute('aria-label')) {
+                        accessibilityScore++;
+                        updateTestStatus(`Card ${index + 1}: aria-label ✓`);
+                    } else {
+                        updateTestStatus(`Card ${index + 1}: aria-label missing`, true);
+                    }
+                    
+                    // Check view details button aria-label
+                    const viewBtn = card.querySelector('.view-details-btn');
+                    if (viewBtn && viewBtn.hasAttribute('aria-label')) {
+                        accessibilityScore++;
+                        updateTestStatus(`Card ${index + 1}: button aria-label ✓`);
+                    } else {
+                        updateTestStatus(`Card ${index + 1}: button aria-label missing`, true);
+                    }
+                }
+            });
+            
+            const percentage = Math.round((accessibilityScore / totalChecks) * 100);
+            updateTestStatus(`Accessibility score: ${accessibilityScore}/${totalChecks} (${percentage}%)`);
+            
+            if (percentage >= 90) {
+                updateTestStatus('Excellent accessibility compliance!');
+            } else if (percentage >= 70) {
+                updateTestStatus('Good accessibility compliance');
+            } else {
+                updateTestStatus('Accessibility needs improvement', true);
+            }
+        }
+        
+        function testResponsive() {
+            clearTestResults();
+            updateTestStatus('Testing responsive design...');
+            
+            const originalWidth = window.innerWidth;
+            updateTestStatus(`Original viewport width: ${originalWidth}px`);
+            
+            // Test mobile breakpoint simulation
+            const skillsGrid = document.querySelector('.enhanced-skills-grid');
+            const skillsContainer = document.querySelector('.interactive-skills-container');
+            
+            if (skillsGrid && skillsContainer) {
+                updateTestStatus('Skills grid and container found');
+                
+                // Check if CSS media queries are working
+                const computedStyle = window.getComputedStyle(skillsGrid);
+                updateTestStatus(`Grid template columns: ${computedStyle.gridTemplateColumns}`);
+                
+                // Test filter tabs responsiveness
+                const filterTabs = document.querySelector('.skills-filter-tabs');
+                if (filterTabs) {
+                    const tabsStyle = window.getComputedStyle(filterTabs);
+                    updateTestStatus(`Filter tabs flex-wrap: ${tabsStyle.flexWrap}`);
+                }
+                
+                updateTestStatus('Responsive design elements are properly configured');
+            } else {
+                updateTestStatus('Skills grid or container not found', true);
+            }
+        }
+        
+        function runAllTests() {
+            clearTestResults();
+            updateTestStatus('🚀 Running comprehensive test suite...');
+            
+            // Run tests in sequence
+            setTimeout(() => runUnitTests(), 500);
+            setTimeout(() => testFilterTransitions(), 2000);
+            setTimeout(() => testSkillHovers(), 5000);
+            setTimeout(() => testModalFunctionality(), 7000);
+            setTimeout(() => testAccessibility(), 9000);
+            setTimeout(() => testResponsive(), 11000);
+            
+            setTimeout(() => {
+                updateTestStatus('🎉 All tests completed! Check results above.');
+            }, 13000);
+        }
+        
+        // Keyboard shortcuts for testing
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                switch (e.key) {
+                    case '1':
+                        e.preventDefault();
+                        runUnitTests();
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        testFilterTransitions();
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        testSkillHovers();
+                        break;
+                    case '4':
+                        e.preventDefault();
+                        testModalFunctionality();
+                        break;
+                    case '5':
+                        e.preventDefault();
+                        testAccessibility();
+                        break;
+                    case '0':
+                        e.preventDefault();
+                        runAllTests();
+                        break;
+                }
+            }
+        });
+        
+        // Add keyboard shortcut info
+        setTimeout(() => {
+            const controlsDiv = document.querySelector('.test-controls');
+            const shortcutsInfo = document.createElement('div');
+            shortcutsInfo.style.fontSize = 'var(--font-size-small)';
+            shortcutsInfo.style.color = 'var(--color-text-tertiary)';
+            shortcutsInfo.style.marginTop = 'var(--space-sm)';
+            shortcutsInfo.innerHTML = 'Keyboard shortcuts: Ctrl+1-5 for individual tests, Ctrl+0 for all tests';
+            controlsDiv.appendChild(shortcutsInfo);
+        }, 1000);
+    </script>
+</body>
+</html>

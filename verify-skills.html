@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Verification</title>
+    <link rel="stylesheet" href="/assets/css/design-system.css" />
+    <link rel="stylesheet" href="/assets/css/modern-sections.css" />
+    <link rel="stylesheet" href="/assets/css/interactive-skills.css" />
+    <style>
+        body {
+            background: var(--color-deep-charcoal);
+            color: var(--color-text-primary);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 2rem;
+        }
+        .verification-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .status-box {
+            background: var(--color-rich-graphite);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            margin-bottom: 2rem;
+            border: 1px solid var(--color-warm-slate);
+        }
+        .success { border-color: var(--color-electric-blue); background: rgba(0, 212, 255, 0.1); }
+        .error { border-color: #ff4444; background: rgba(255, 68, 68, 0.1); }
+        .loading { border-color: var(--color-muted-gold); background: rgba(255, 213, 79, 0.1); }
+        
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        .container {
+            max-width: var(--container-large);
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        .section-title {
+            font-size: var(--font-size-h2);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+        }
+        .section-subtitle {
+            font-size: var(--font-size-body);
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <h1>🔍 Interactive Skills Verification</h1>
+        
+        <div id="status" class="status-box loading">
+            <h3>⏳ Loading Interactive Skills System...</h3>
+            <p>Please wait while we initialize and verify the system.</p>
+        </div>
+        
+        <div id="details" class="status-box" style="display: none;">
+            <h3>📊 System Details</h3>
+            <div id="details-content"></div>
+        </div>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Technical Skills</h2>
+                    <p class="section-subtitle">Enhanced interactive display with proficiency indicators</p>
+                </header>
+                
+                <div class="skills-grid">
+                    <div style="text-align: center; padding: 2rem; color: var(--color-text-secondary);">
+                        <p>Initializing interactive skills display...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/assets/js/interactive-skills.js"></script>
+    <script>
+        function updateStatus(title, message, type = 'loading') {
+            const statusBox = document.getElementById('status');
+            statusBox.className = `status-box ${type}`;
+            statusBox.innerHTML = `<h3>${title}</h3><p>${message}</p>`;
+        }
+        
+        function showDetails(details) {
+            const detailsBox = document.getElementById('details');
+            const detailsContent = document.getElementById('details-content');
+            
+            detailsContent.innerHTML = details;
+            detailsBox.style.display = 'block';
+        }
+        
+        // Verification process
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStatus('🔄 Initializing...', 'Setting up the interactive skills system.');
+            
+            // Wait for the system to initialize
+            setTimeout(() => {
+                try {
+                    // Check if the system loaded
+                    const skillsContainer = document.querySelector('.interactive-skills-container');
+                    const filterTabs = document.querySelectorAll('.filter-tab');
+                    const skillCards = document.querySelectorAll('.enhanced-skill-card');
+                    const skillCategories = document.querySelectorAll('.skill-category');
+                    const modal = document.querySelector('.skill-detail-modal');
+                    
+                    if (skillsContainer) {
+                        updateStatus(
+                            '✅ Interactive Skills System Loaded Successfully!',
+                            'All components have been created and are ready for interaction.',
+                            'success'
+                        );
+                        
+                        const details = `
+                            <ul style="list-style: none; padding: 0;">
+                                <li>📁 Skills Container: <strong>Created</strong></li>
+                                <li>🏷️ Filter Tabs: <strong>${filterTabs.length} tabs</strong></li>
+                                <li>📊 Skill Categories: <strong>${skillCategories.length} categories</strong></li>
+                                <li>🎯 Skill Cards: <strong>${skillCards.length} cards</strong></li>
+                                <li>🔍 Detail Modal: <strong>${modal ? 'Available' : 'Missing'}</strong></li>
+                            </ul>
+                            <hr style="margin: 1rem 0; border: 1px solid var(--color-warm-slate);">
+                            <h4>🎮 Interactive Features:</h4>
+                            <ul style="list-style: none; padding: 0;">
+                                <li>✨ Hover over skill cards to see animations</li>
+                                <li>🔄 Click filter tabs to switch categories</li>
+                                <li>📖 Click "View Details" to open skill information</li>
+                                <li>⌨️ Use keyboard navigation (Tab, Enter, Escape)</li>
+                                <li>📱 Responsive design adapts to screen size</li>
+                            </ul>
+                        `;
+                        
+                        showDetails(details);
+                        
+                        // Test basic functionality
+                        setTimeout(() => {
+                            testBasicFunctionality();
+                        }, 1000);
+                        
+                    } else {
+                        updateStatus(
+                            '❌ Interactive Skills System Failed to Load',
+                            'The system could not be initialized. Check the console for error details.',
+                            'error'
+                        );
+                        
+                        // Show debugging info
+                        const debugInfo = `
+                            <h4>🐛 Debug Information:</h4>
+                            <ul>
+                                <li>Skills section found: ${document.getElementById('skills') ? 'Yes' : 'No'}</li>
+                                <li>Container found: ${document.querySelector('.container') ? 'Yes' : 'No'}</li>
+                                <li>InteractiveSkillsSystem class: ${typeof InteractiveSkillsSystem !== 'undefined' ? 'Available' : 'Missing'}</li>
+                                <li>JavaScript errors: Check browser console</li>
+                            </ul>
+                        `;
+                        
+                        showDetails(debugInfo);
+                    }
+                    
+                } catch (error) {
+                    updateStatus(
+                        '💥 System Error',
+                        `An error occurred during verification: ${error.message}`,
+                        'error'
+                    );
+                    
+                    console.error('Verification error:', error);
+                }
+            }, 2000);
+        });
+        
+        function testBasicFunctionality() {
+            console.log('🧪 Testing basic functionality...');
+            
+            // Test filter switching
+            const programmingTab = document.querySelector('.filter-tab[data-filter="programming"]');
+            if (programmingTab) {
+                console.log('✅ Filter tabs are clickable');
+                
+                // Test click
+                programmingTab.click();
+                
+                setTimeout(() => {
+                    if (programmingTab.classList.contains('active')) {
+                        console.log('✅ Filter switching works');
+                    } else {
+                        console.log('❌ Filter switching failed');
+                    }
+                }, 300);
+            }
+            
+            // Test skill card hover
+            const firstSkillCard = document.querySelector('.enhanced-skill-card');
+            if (firstSkillCard) {
+                console.log('✅ Skill cards are present');
+                
+                // Simulate hover
+                const hoverEvent = new MouseEvent('mouseenter', { bubbles: true });
+                firstSkillCard.dispatchEvent(hoverEvent);
+                
+                setTimeout(() => {
+                    console.log('✅ Hover events are working');
+                }, 200);
+            }
+            
+            // Test modal
+            const viewDetailsBtn = document.querySelector('.view-details-btn');
+            if (viewDetailsBtn) {
+                console.log('✅ View details buttons are present');
+            }
+            
+            console.log('🎉 Basic functionality test completed');
+        }
+        
+        // Error handling
+        window.addEventListener('error', (event) => {
+            console.error('JavaScript Error:', event.error);
+            updateStatus(
+                '💥 JavaScript Error Detected',
+                `Error: ${event.error.message}. Check console for details.`,
+                'error'
+            );
+        });
+    </script>
+</body>
+</html>

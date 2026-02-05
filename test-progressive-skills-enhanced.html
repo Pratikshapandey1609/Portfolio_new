@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Progressive Skills Animation Test</title>
+    
+    <!-- Design System CSS -->
+    <link rel="stylesheet" href="/assets/css/design-system.css" />
+    <link rel="stylesheet" href="/assets/css/interactive-skills.css" />
+    
+    <style>
+        body {
+            background: var(--color-deep-charcoal);
+            color: var(--color-text-primary);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-xl);
+        }
+        
+        .test-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            padding: var(--space-xl);
+            background: var(--color-rich-graphite);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-warm-slate);
+        }
+        
+        .test-header h1 {
+            font-size: var(--font-size-display);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-electric-blue);
+            margin-bottom: var(--space-md);
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .test-header p {
+            font-size: var(--font-size-h3);
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+        
+        .test-controls {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-3xl);
+            flex-wrap: wrap;
+        }
+        
+        .test-btn {
+            padding: var(--space-md) var(--space-lg);
+            background: var(--color-electric-blue);
+            color: var(--color-deep-charcoal);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+        
+        .test-btn:hover {
+            background: var(--color-soft-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
+        }
+        
+        .test-btn.secondary {
+            background: var(--color-warm-slate);
+            color: var(--color-text-primary);
+            border: 1px solid var(--color-electric-blue);
+        }
+        
+        .test-btn.secondary:hover {
+            background: var(--color-electric-blue);
+            color: var(--color-deep-charcoal);
+        }
+        
+        .debug-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--color-rich-graphite);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-warm-slate);
+            font-size: var(--font-size-small);
+            max-width: 300px;
+            z-index: 1000;
+        }
+        
+        .debug-info h4 {
+            color: var(--color-electric-blue);
+            margin: 0 0 var(--space-sm) 0;
+        }
+        
+        .debug-info ul {
+            margin: 0;
+            padding-left: var(--space-md);
+            color: var(--color-text-secondary);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .section-title {
+            font-size: var(--font-size-h1);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+        }
+        
+        .section-subtitle {
+            font-size: var(--font-size-h3);
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🚀 Enhanced Progressive Skills Animation Test</h1>
+            <p>Testing the enhanced progressive skills animation system with rich visual feedback and smooth category filtering</p>
+        </div>
+        
+        <div class="test-controls">
+            <button class="test-btn" onclick="resetAndReplay()">🔄 Reset & Replay</button>
+            <button class="test-btn secondary" onclick="testFilterTransitions()">🎯 Test Filters</button>
+            <button class="test-btn secondary" onclick="testHoverEffects()">✨ Test Hover</button>
+            <button class="test-btn secondary" onclick="toggleDebug()">🐛 Debug Info</button>
+        </div>
+        
+        <div class="debug-info" id="debugInfo" style="display: none;">
+            <h4>🔍 Debug Information:</h4>
+            <ul id="debugList">
+                <li>Loading debug info...</li>
+            </ul>
+        </div>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Enhanced Technical Skills</h2>
+                    <p class="section-subtitle">Experience the enhanced progressive animation system with rich visual feedback</p>
+                </header>
+                
+                <!-- The InteractiveSkillsSystem will populate this area -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Interactive Skills System -->
+    <script src="/assets/js/interactive-skills.js"></script>
+    <script src="/verify-progressive-skills-enhanced.js"></script>
+    
+    <script>
+        let debugVisible = false;
+        let skillsSystemInstance = null;
+        
+        // Wait for the skills system to initialize
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                skillsSystemInstance = window.skillsSystemInstance;
+                updateDebugInfo();
+                
+                // Listen for custom events
+                document.addEventListener('skillsProgressiveRevealComplete', (e) => {
+                    console.log('🎉 Progressive reveal completed!', e.detail);
+                    updateDebugInfo();
+                });
+                
+                document.addEventListener('skillsFilterChanged', (e) => {
+                    console.log('🎯 Filter changed to:', e.detail.filter);
+                    updateDebugInfo();
+                });
+            }, 1000);
+        });
+        
+        function resetAndReplay() {
+            console.log('🔄 Resetting and replaying animations...');
+            
+            // Reset all skill cards
+            const skillCards = document.querySelectorAll('.enhanced-skill-card');
+            skillCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px) scale(0.8) rotateX(20deg)';
+                card.style.filter = 'blur(5px)';
+                card.style.animation = '';
+                card.dataset.animationState = 'pending';
+            });
+            
+            // Reset category headers
+            const categoryHeaders = document.querySelectorAll('.category-header');
+            categoryHeaders.forEach(header => {
+                header.style.opacity = '0';
+                header.style.transform = 'translateX(-30px) scale(0.95)';
+                header.style.animation = '';
+            });
+            
+            // Trigger progressive reveal after a short delay
+            setTimeout(() => {
+                if (skillsSystemInstance) {
+                    skillsSystemInstance.progressiveRevealSkills();
+                }
+            }, 500);
+        }
+        
+        function testFilterTransitions() {
+            console.log('🎯 Testing filter transitions...');
+            
+            const filters = ['all', 'programming', 'frameworks', 'databases', 'tools'];
+            let currentIndex = 0;
+            
+            function cycleFilters() {
+                const filterTab = document.querySelector(`[data-filter="${filters[currentIndex]}"]`);
+                if (filterTab) {
+                    filterTab.click();
+                    console.log(`Switched to filter: ${filters[currentIndex]}`);
+                }
+                
+                currentIndex = (currentIndex + 1) % filters.length;
+                
+                if (currentIndex !== 0) {
+                    setTimeout(cycleFilters, 3000);
+                }
+            }
+            
+            cycleFilters();
+        }
+        
+        function testHoverEffects() {
+            console.log('✨ Testing hover effects...');
+            
+            const skillCards = document.querySelectorAll('.enhanced-skill-card');
+            let cardIndex = 0;
+            
+            function simulateHover() {
+                if (cardIndex < skillCards.length) {
+                    const card = skillCards[cardIndex];
+                    
+                    // Simulate mouse enter
+                    const enterEvent = new MouseEvent('mouseenter', { bubbles: true });
+                    card.dispatchEvent(enterEvent);
+                    
+                    setTimeout(() => {
+                        // Simulate mouse leave
+                        const leaveEvent = new MouseEvent('mouseleave', { bubbles: true });
+                        card.dispatchEvent(leaveEvent);
+                        
+                        cardIndex++;
+                        if (cardIndex < skillCards.length) {
+                            setTimeout(simulateHover, 1000);
+                        }
+                    }, 2000);
+                }
+            }
+            
+            simulateHover();
+        }
+        
+        function toggleDebug() {
+            debugVisible = !debugVisible;
+            const debugInfo = document.getElementById('debugInfo');
+            debugInfo.style.display = debugVisible ? 'block' : 'none';
+            
+            if (debugVisible) {
+                updateDebugInfo();
+            }
+        }
+        
+        function updateDebugInfo() {
+            const debugList = document.getElementById('debugList');
+            if (!debugList) return;
+            
+            const skillsSection = document.getElementById('skills');
+            const skillCards = document.querySelectorAll('.enhanced-skill-card');
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            const activeFilter = document.querySelector('.filter-tab.active');
+            
+            debugList.innerHTML = `
+                <li>Skills section found: ${skillsSection ? 'Yes' : 'No'}</li>
+                <li>Skill cards: ${skillCards.length}</li>
+                <li>Filter tabs: ${filterTabs.length}</li>
+                <li>Active filter: ${activeFilter ? activeFilter.dataset.filter : 'None'}</li>
+                <li>InteractiveSkillsSystem: ${typeof window.InteractiveSkillsSystem !== 'undefined' ? 'Available' : 'Missing'}</li>
+                <li>Skills instance: ${window.skillsSystemInstance ? 'Available' : 'Missing'}</li>
+                <li>Animation states: ${Array.from(skillCards).map(card => card.dataset.animationState).join(', ')}</li>
+            `;
+        }
+        
+        // Performance monitoring
+        let frameCount = 0;
+        let lastTime = performance.now();
+        
+        function monitorPerformance() {
+            frameCount++;
+            const currentTime = performance.now();
+            
+            if (currentTime - lastTime >= 1000) {
+                const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+                console.log(`🎯 FPS: ${fps}`);
+                
+                frameCount = 0;
+                lastTime = currentTime;
+            }
+            
+            requestAnimationFrame(monitorPerformance);
+        }
+        
+        // Start performance monitoring
+        requestAnimationFrame(monitorPerformance);
+    </script>
+</body>
+</html>

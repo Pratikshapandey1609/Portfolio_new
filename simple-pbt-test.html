@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple PBT Test</title>
+  <style>
+    body {
+      font-family: monospace;
+      background: #0a0a0b;
+      color: #ffffff;
+      padding: 20px;
+    }
+    .output {
+      background: #1a1a1d;
+      padding: 15px;
+      border-radius: 5px;
+      white-space: pre-wrap;
+      margin: 10px 0;
+    }
+    .status {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .pass { background: #4caf50; }
+    .fail { background: #f44336; }
+    .running { background: #ff9800; }
+  </style>
+</head>
+<body>
+  <h1>Property-Based Test: Animation Performance Budget</h1>
+  <div id="status" class="status running">Initializing...</div>
+  <div id="output" class="output">Loading scripts...</div>
+
+  <script>
+    // Global test state
+    let testOutput = document.getElementById('output');
+    let testStatus = document.getElementById('status');
+    
+    function log(message) {
+      testOutput.textContent += message + '\n';
+      console.log(message);
+    }
+    
+    function updateStatus(message, className) {
+      testStatus.textContent = message;
+      testStatus.className = 'status ' + className;
+    }
+    
+    // Load scripts sequentially
+    async function loadScript(src) {
+      return new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = src;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+    
+    async function runTest() {
+      try {
+        log('Loading animation engine...');
+        await loadScript('/assets/js/animations.js');
+        
+        // Wait for initialization
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        log('Loading property-based test...');
+        await loadScript('/assets/js/tests/animation-performance.pbt.js');
+        
+        // Wait for test to be ready
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        log('Checking animation engine availability...');
+        log('AnimationEngine class: ' + typeof window.AnimationEngine);
+        log('animationEngine instance: ' + typeof window.animationEngine);
+        log('runAnimationPerformanceTest: ' + typeof window.runAnimationPerformanceTest);
+        
+        if (!window.animationEngine && window.AnimationEngine) {
+          log('Manually initializing animation engine...');
+          window.animationEngine = new window.AnimationEngine();
+        }
+        
+        if (!window.runAnimationPerformanceTest) {
+          throw new Error('Test function not available');
+        }
+        
+        updateStatus('Running property-based test...', 'running');
+        log('\nStarting property-based test with 100 iterations...');
+        
+        const results = await window.runAnimationPerformanceTest();
+        
+        log('\n=== TEST RESULTS ===');
+        log('Passed: ' + results.passed + '/' + results.iterations);
+        log('Failed: ' + results.failed + '/' + results.iterations);
+        log('Success Rate: ' + ((results.passed / results.iterations) * 100).toFixed(1) + '%');
+        log('Total Time: ' + results.totalTime.toFixed(2) + 'ms');
+        
+        if (results.success) {
+          updateStatus('✅ TEST PASSED', 'pass');
+          log('\n✅ All tests passed!');
+        } else {
+          updateStatus('❌ TEST FAILED', 'fail');
+          log('\n❌ Some tests failed:');
+          results.errors.slice(0, 3).forEach((error, i) => {
+            log('  ' + (i + 1) + '. ' + error.error);
+          });
+        }
+        
+      } catch (error) {
+        updateStatus('❌ TEST ERROR', 'fail');
+        log('\nERROR: ' + error.message);
+        log('Stack: ' + error.stack);
+      }
+    }
+    
+    // Start test when page loads
+    window.addEventListener('load', () => {
+      setTimeout(runTest, 100);
+    });
+  </script>
+</body>
+</html>

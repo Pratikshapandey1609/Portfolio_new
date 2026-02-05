@@ -1,0 +1,376 @@
+/* ===================================
+   LAYOUT FIXES - REMOVE EXCESSIVE SPACING
+   ================================== */
+
+/* === GLOBAL RESET === */
+* {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* === ROOT ELEMENTS === */
+html {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: var(--color-deep-charcoal) !important;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+  background: var(--color-deep-charcoal) !important;
+  overflow-x: hidden !important;
+}
+
+/* === MAIN LAYOUT === */
+#main-content,
+main {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* === NAVIGATION === */
+.main-nav {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.nav-container {
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 8px 16px !important;
+}
+
+.desktop-nav {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* === SECTIONS === */
+.section {
+  margin: 0 !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.hero-section {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.about-section,
+.projects-section,
+.skills-section,
+.contact-section {
+  margin: 0 !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* === CONTAINERS === */
+.container {
+  margin: 0 auto !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+}
+
+/* Mobile container fixes */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 8px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .nav-container {
+    padding: 4px 8px !important;
+  }
+  
+  .hero-content {
+    padding: 16px 8px !important;
+    margin: 0 !important;
+  }
+  
+  .section {
+    padding: 32px 0 !important;
+  }
+  
+  .section-header {
+    margin-bottom: 24px !important;
+    padding: 0 !important;
+  }
+}
+
+/* Tablet container fixes */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 0 16px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .nav-container {
+    padding: 8px 16px !important;
+  }
+  
+  .hero-content {
+    padding: 24px 16px !important;
+    margin: 0 !important;
+  }
+  
+  .section {
+    padding: 48px 0 !important;
+  }
+}
+
+/* Desktop container fixes */
+@media (min-width: 769px) {
+  .container {
+    padding: 0 24px !important;
+    margin: 0 auto !important;
+    max-width: 1200px !important;
+  }
+  
+  .nav-container {
+    padding: 12px 24px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+  }
+  
+  .hero-content {
+    padding: 32px 24px !important;
+    margin: 0 !important;
+  }
+  
+  .section {
+    padding: 64px 0 !important;
+  }
+}
+
+/* === CONTENT ELEMENTS === */
+.hero-content,
+.about-content,
+.projects-grid,
+.skills-grid,
+.contact-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === CARDS AND COMPONENTS === */
+.project-card,
+.skill-category,
+.card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === NAVIGATION MENU === */
+.nav-menu {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-menu li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.nav-link {
+  margin: 0 !important;
+}
+
+/* Mobile navigation fixes */
+@media (max-width: 768px) {
+  .nav-menu {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 16px 0 !important;
+  }
+  
+  .nav-link {
+    padding: 12px 16px !important;
+    margin: 0 !important;
+  }
+  
+  .resume-link {
+    margin: 8px 16px !important;
+  }
+}
+
+/* === HERO SECTION FIXES === */
+.hero-particles {
+  margin: 0 !important;
+  padding: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+}
+
+.hero-title,
+.hero-subtitle,
+.hero-description {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.hero-actions {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.social-links {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === SCROLL INDICATOR === */
+.scroll-indicator {
+  margin: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+/* === STORY CHAPTERS === */
+.story-chapter {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.chapter-marker,
+.chapter-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === BRAND ELEMENTS === */
+.brand-elements,
+.brand-section {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.values-grid,
+.approach-cards,
+.journey-timeline {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === PROJECTS === */
+.projects-filter {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.filter-btn {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === SKILLS === */
+.skills-list {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.skill-item {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === CONTACT === */
+.contact-methods,
+.contact-method {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.form-group {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === FOOTER === */
+.footer {
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.footer-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === OVERRIDE ANY REMAINING MARGINS === */
+h1, h2, h3, h4, h5, h6 {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+p, ul, ol, li {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* === ENSURE FULL WIDTH === */
+.section,
+.hero-section,
+.about-section,
+.projects-section,
+.skills-section,
+.contact-section,
+.footer {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* === PREVENT HORIZONTAL SCROLL === */
+body {
+  overflow-x: hidden !important;
+}
+
+* {
+  max-width: 100% !important;
+}
+
+/* === MOBILE SPECIFIC FIXES === */
+@media (max-width: 480px) {
+  * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  
+  .section {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

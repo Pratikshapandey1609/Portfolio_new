@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spacing Fix Test - Portfolio</title>
+    
+    <!-- All CSS files in correct order -->
+    <link rel="stylesheet" href="/assets/css/design-system.css" />
+    <link rel="stylesheet" href="/assets/css/modern-sections.css" />
+    <link rel="stylesheet" href="/assets/css/cursor-system.css" />
+    <link rel="stylesheet" href="/assets/css/navigation.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/resume-download.css" />
+    <link rel="stylesheet" href="/assets/css/interactive-skills.css" />
+    <link rel="stylesheet" href="/assets/css/responsive-utilities.css" />
+    <link rel="stylesheet" href="/assets/css/layout-fixes.css" />
+    
+    <style>
+        /* Visual debugging styles */
+        .debug-outline {
+            outline: 1px solid red !important;
+        }
+        
+        .debug-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--color-electric-blue);
+            color: var(--color-deep-charcoal);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 10000;
+            max-width: 200px;
+        }
+        
+        .spacing-test {
+            background: var(--color-rich-graphite);
+            border: 2px solid var(--color-electric-blue);
+            margin: 0;
+            padding: 16px;
+            width: 100%;
+        }
+        
+        .no-margin-test {
+            background: var(--color-warm-slate);
+            color: var(--color-text-primary);
+            padding: 8px;
+            margin: 0;
+        }
+        
+        .full-width-test {
+            background: linear-gradient(90deg, var(--color-electric-blue), var(--color-soft-cyan));
+            color: var(--color-deep-charcoal);
+            padding: 20px;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-info" id="debugInfo">
+        <strong>Spacing Debug Info:</strong><br>
+        <span id="bodyMargin">Body Margin: Loading...</span><br>
+        <span id="bodyPadding">Body Padding: Loading...</span><br>
+        <span id="htmlMargin">HTML Margin: Loading...</span><br>
+        <span id="htmlPadding">HTML Padding: Loading...</span><br>
+        <span id="viewport">Viewport: Loading...</span>
+    </div>
+
+    <!-- Navigation Test -->
+    <nav id="main-nav" class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Test Navigation</span>
+            </div>
+            <button id="nav-toggle" class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <ul id="nav-menu" class="nav-menu">
+            <li><a href="#test1" class="nav-link">Test 1</a></li>
+            <li><a href="#test2" class="nav-link">Test 2</a></li>
+            <li><a href="#test3" class="nav-link">Test 3</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Full Width Test -->
+        <div class="full-width-test">
+            ✅ This should span the full width with no side margins
+        </div>
+
+        <!-- Hero Section Test -->
+        <section id="test1" class="hero-section section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Spacing Fix Test</h1>
+                    <p class="hero-description">
+                        Testing that all margins and padding are properly controlled.
+                        This content should not have excessive spacing on the sides.
+                    </p>
+                    <div class="hero-actions">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing Test Section -->
+        <section id="test2" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Container Spacing Test</h2>
+                    <p class="section-subtitle">Testing container margins and padding</p>
+                </div>
+                
+                <div class="spacing-test">
+                    <h3>Spacing Test Container</h3>
+                    <p>This container should have proper padding but no excessive margins.</p>
+                    
+                    <div class="no-margin-test">
+                        <strong>No Margin Test:</strong> This element should have zero margins.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grid Test Section -->
+        <section id="test3" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Grid Layout Test</h2>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 0; padding: 0;">
+                    <div class="spacing-test">
+                        <h4>Grid Item 1</h4>
+                        <p>Testing grid layout spacing</p>
+                    </div>
+                    <div class="spacing-test">
+                        <h4>Grid Item 2</h4>
+                        <p>Should have no side margins</p>
+                    </div>
+                    <div class="spacing-test">
+                        <h4>Grid Item 3</h4>
+                        <p>Full width utilization</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mobile Test Section -->
+        <section class="section" style="background: var(--color-rich-graphite);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Mobile Spacing Test</h2>
+                    <p class="section-subtitle">Resize window to test mobile spacing</p>
+                </div>
+                
+                <div style="background: var(--color-warm-slate); padding: 16px; margin: 0; border-radius: 8px;">
+                    <h4 style="color: var(--color-text-primary); margin-bottom: 8px;">Mobile Container</h4>
+                    <p style="color: var(--color-text-secondary); margin: 0;">
+                        On mobile devices, this should have minimal side padding and no excessive margins.
+                        The content should utilize the full available width efficiently.
+                    </p>
+                    
+                    <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
+                        <button class="btn btn-small">Button 1</button>
+                        <button class="btn btn-small">Button 2</button>
+                        <button class="btn btn-small">Button 3</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="/assets/js/responsive-handler.js"></script>
+    
+    <script>
+        function updateDebugInfo() {
+            const body = document.body;
+            const html = document.documentElement;
+            const bodyStyle = window.getComputedStyle(body);
+            const htmlStyle = window.getComputedStyle(html);
+            
+            document.getElementById('bodyMargin').textContent = 
+                `Body Margin: ${bodyStyle.marginLeft} | ${bodyStyle.marginRight}`;
+            document.getElementById('bodyPadding').textContent = 
+                `Body Padding: ${bodyStyle.paddingLeft} | ${bodyStyle.paddingRight}`;
+            document.getElementById('htmlMargin').textContent = 
+                `HTML Margin: ${htmlStyle.marginLeft} | ${htmlStyle.marginRight}`;
+            document.getElementById('htmlPadding').textContent = 
+                `HTML Padding: ${htmlStyle.paddingLeft} | ${htmlStyle.paddingRight}`;
+            document.getElementById('viewport').textContent = 
+                `Viewport: ${window.innerWidth}px x ${window.innerHeight}px`;
+        }
+
+        // Update debug info on load and resize
+        window.addEventListener('load', updateDebugInfo);
+        window.addEventListener('resize', updateDebugInfo);
+        
+        // Test navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+        
+        // Check for excessive margins/padding
+        function checkSpacing() {
+            const elements = document.querySelectorAll('*');
+            const issues = [];
+            
+            elements.forEach(element => {
+                const style = window.getComputedStyle(element);
+                const marginLeft = parseFloat(style.marginLeft);
+                const marginRight = parseFloat(style.marginRight);
+                const paddingLeft = parseFloat(style.paddingLeft);
+                const paddingRight = parseFloat(style.paddingRight);
+                
+                if (marginLeft > 50 || marginRight > 50) {
+                    issues.push(`${element.tagName}.${element.className}: Excessive margin`);
+                    element.classList.add('debug-outline');
+                }
+                
+                if (paddingLeft > 100 || paddingRight > 100) {
+                    issues.push(`${element.tagName}.${element.className}: Excessive padding`);
+                    element.classList.add('debug-outline');
+                }
+            });
+            
+            if (issues.length > 0) {
+                console.warn('Spacing Issues Found:', issues);
+            } else {
+                console.log('✅ No excessive spacing issues found');
+            }
+        }
+        
+        // Run spacing check after page loads
+        setTimeout(checkSpacing, 1000);
+        
+        // Log responsive handler status
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.responsiveHandler) {
+                console.log('✅ Responsive Handler loaded');
+                console.log('Current breakpoint:', window.responsiveHandler.getBreakpoint());
+            }
+        });
+    </script>
+</body>
+</html>
