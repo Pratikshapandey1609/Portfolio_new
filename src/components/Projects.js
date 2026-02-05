@@ -181,4 +181,4 @@ const Projects = () => {
   );
 };
 
-export defa
+export default Projects;

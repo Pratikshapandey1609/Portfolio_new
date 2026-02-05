@@ -92,16 +92,6 @@ const Skills = () => {
         { name: 'Power BI', icon: 'BI', color: 'from-yellow-500 to-yellow-600' },
       ]
     },
-    {
-      title: 'Data Science & AI',
-      skills: [
-        { name: 'TensorFlow', icon: '/assets/img/tensorflow-logo-1.png', isImage: true },
-        { name: 'Keras', icon: '/assets/img/keras-logo.png', isImage: true },
-        { name: 'PyTorch', icon: '/assets/img/pytorch-logo.png', isImage: true },
-        { name: 'Pandas', icon: '/assets/img/pandas-logo-1.png', isImage: true },
-        { name: 'Matplotlib', icon: '/assets/img/matplotlib-logo-1.svg', isImage: true },
-      ]
-    },
   ];
 
   const containerVariants = {
@@ -182,4 +172,40 @@ const Skills = () => {
                       y: -5,
                       transition: { duration: 0.2 }
                     }}
-                    className="skill-ite
+                    className="skill-item flex flex-col items-center gap-2 p-3 bg-warm-slate rounded-lg border-2 border-transparent hover:border-electric-blue transition-all duration-300 cursor-pointer group"
+                  >
+                    <div className="relative">
+                      {skill.isImage ? (
+                        <img
+                          src={skill.icon}
+                          alt={skill.name}
+                          className="w-8 h-8 object-contain rounded-lg transition-transform duration-300 group-hover:scale-110"
+                        />
+                      ) : (
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-xs font-bold text-white bg-gradient-to-br ${skill.color} transition-transform duration-300 group-hover:scale-110`}>
+                          {skill.icon}
+                        </div>
+                      )}
+                      
+                      {/* Glow effect on hover */}
+                      <motion.div
+                        className="absolute inset-0 bg-electric-blue rounded-lg opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                        whileHover={{ scale: 1.2 }}
+                      />
+                    </div>
+                    
+                    <span className="text-xs font-semibold text-text-primary text-center leading-tight">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;

@@ -363,4 +363,4 @@ const Navbar = () => {
   );
 };
 
-expo
+export default Navbar;

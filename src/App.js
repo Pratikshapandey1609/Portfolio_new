@@ -10,6 +10,7 @@ import Resume from './components/Resume';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import CustomCursor from './components/CustomCursor';
+import ParticleBackground from './components/ParticleBackground';
 import './index.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <CustomCursor />
+      <ParticleBackground />
       <AnimatePresence mode="wait">
         {isLoading ? (
           <LoadingScreen key="loading" />
@@ -36,7 +38,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="min-h-screen bg-hero"
+            className="min-h-screen bg-hero relative z-10"
           >
             <Navbar />
             <main>
@@ -49,4 +51,10 @@ function App() {
             </main>
             <Footer />
           </motion.div>
- 
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+export default App;

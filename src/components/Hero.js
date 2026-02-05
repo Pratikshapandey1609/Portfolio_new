@@ -249,4 +249,82 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-5xl md:text-7xl font-bold mb-6"
         >
-          <span className="text-
+          <span className="text-gradient">Pratiksha Pandey</span>
+        </motion.h1>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-2xl md:text-3xl font-semibold text-text-primary mb-6"
+        >
+          <span ref={typedRef}></span>
+        </motion.div>
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed mb-8"
+        >
+          Computer Science student specializing in Java, Spring Boot, React, and modern web technologies 
+          with expertise in building scalable, secure applications using both MERN stack and enterprise Java solutions.
+        </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection('projects')}
+            className="btn-primary flex items-center gap-3 text-lg px-8 py-4 group"
+          >
+            <span>View Projects</span>
+            <motion.i
+              className="fas fa-arrow-right"
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+          </motion.button>
+          
+          <motion.button
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection('contact')}
+            className="btn-secondary flex items-center gap-3 text-lg px-8 py-4"
+          >
+            <span>Contact Me</span>
+            <i className="fas fa-envelope" />
+          </motion.button>
+        </motion.div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center z-10"
+      >
+        <p className="text-text-tertiary text-sm mb-2">Scroll to explore</p>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="w-6 h-10 border-2 border-electric-blue rounded-full flex justify-center"
+        >
+          <motion.div
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-1 h-3 bg-electric-blue rounded-full mt-2"
+          />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;
