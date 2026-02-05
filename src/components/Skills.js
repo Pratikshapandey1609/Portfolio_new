@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import WaveBackground from './WaveBackground';
 
 const Skills = () => {
   const [inView, setInView] = useState(false);
@@ -130,6 +131,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="py-20 lg:ml-70 relative">
+      <WaveBackground opacity={0.15} color="#40e0d0" />
       <div className="absolute inset-0 bg-hero-overlay" />
       
       <div className="container mx-auto px-6 relative z-10">

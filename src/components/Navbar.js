@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ProfileImage from './ProfileImage';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +11,7 @@ const Navbar = () => {
   const navItems = useMemo(() => [
     { id: 'hero', label: 'Home', icon: 'fas fa-home' },
     { id: 'about', label: 'About', icon: 'fas fa-user' },
+    { id: 'experience', label: 'Experience', icon: 'fas fa-briefcase' },
     { id: 'skills', label: 'Skills', icon: 'fas fa-cogs' },
     { id: 'projects', label: 'Projects', icon: 'fas fa-code' },
     { id: 'contact', label: 'Contact', icon: 'fas fa-envelope' },
@@ -121,16 +123,11 @@ const Navbar = () => {
             transition={{ duration: 0.3, delay: isHovering ? 0.1 : 0 }}
             className="p-8 border-b border-warm-slate bg-electric-blue bg-opacity-5"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="w-20 h-20 rounded-full border-3 border-electric-blue mx-auto mb-4 overflow-hidden"
-            >
-              <img
-                src="/assets/img/passport-new.jpg"
-                alt="Pratiksha Pandey"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            <ProfileImage 
+              size="w-20 h-20"
+              className="mx-auto mb-4"
+              animate={true}
+            />
             
             <AnimatePresence>
               {isHovering && (
@@ -292,13 +289,12 @@ const Navbar = () => {
             >
               {/* Mobile Profile Section */}
               <div className="p-6 border-b border-warm-slate bg-electric-blue bg-opacity-5 mt-16">
-                <div className="w-16 h-16 rounded-full border-2 border-electric-blue mx-auto mb-3 overflow-hidden">
-                  <img
-                    src="/assets/img/passport-new.jpg"
-                    alt="Pratiksha Pandey"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                <ProfileImage 
+                  size="w-16 h-16"
+                  className="mx-auto mb-3"
+                  borderSize="border-2"
+                  animate={false}
+                />
                 <h2 className="text-lg font-bold text-text-primary text-center mb-1">
                   Pratiksha Pandey
                 </h2>

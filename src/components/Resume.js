@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import FloatingDotsBackground from './FloatingDotsBackground';
 
 const Resume = () => {
   const [inView, setInView] = useState(false);
@@ -100,6 +101,7 @@ const Resume = () => {
 
   return (
     <section id="resume" className="py-20 lg:ml-70 relative">
+      <FloatingDotsBackground opacity={0.15} primaryColor="#8b5cf6" secondaryColor="#40e0d0" />
       <div className="absolute inset-0 bg-hero-overlay" />
       
       <div className="container mx-auto px-6 relative z-10">

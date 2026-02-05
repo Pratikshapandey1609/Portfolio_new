@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import ProfileImage from './ProfileImage';
 
 const Projects = () => {
   const [inView, setInView] = useState(false);
@@ -87,19 +88,60 @@ const Projects = () => {
     <section id="projects" className="py-20 lg:ml-70 relative">
       <div className="absolute inset-0 bg-hero-overlay" />
       
+      {/* Projects Cover Section */}
+      <div className="relative mb-16">
+        <div className="absolute inset-0 bg-gradient-to-r from-electric-blue to-soft-cyan opacity-10" />
+        <div className="container mx-auto px-6 relative z-10 py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={inView ? { scale: 1, opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <ProfileImage 
+                size="w-32 h-32"
+                className="mx-auto mb-8 shadow-glow"
+                borderSize="border-4"
+                animate={true}
+              />
+            </motion.div>
+            
+            <h2 className="section-title mb-6">Featured Projects</h2>
+            <p className="section-subtitle max-w-3xl mx-auto">
+              A showcase of my technical expertise through real-world applications. 
+              Each project demonstrates my ability to solve complex problems using modern technologies 
+              and best practices in software development.
+            </p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-wrap justify-center gap-4 mt-8"
+            >
+              <span className="px-4 py-2 bg-electric-blue bg-opacity-10 text-electric-blue rounded-full text-sm font-medium border border-electric-blue border-opacity-30">
+                Full-Stack Development
+              </span>
+              <span className="px-4 py-2 bg-electric-blue bg-opacity-10 text-electric-blue rounded-full text-sm font-medium border border-electric-blue border-opacity-30">
+                MERN Stack
+              </span>
+              <span className="px-4 py-2 bg-electric-blue bg-opacity-10 text-electric-blue rounded-full text-sm font-medium border border-electric-blue border-opacity-30">
+                Java Spring Boot
+              </span>
+              <span className="px-4 py-2 bg-electric-blue bg-opacity-10 text-electric-blue rounded-full text-sm font-medium border border-electric-blue border-opacity-30">
+                Real-time Applications
+              </span>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+      
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="section-subtitle">
-            A selection of my recent work
-          </p>
-        </motion.div>
-
         <motion.div
           variants={containerVariants}
           initial="hidden"

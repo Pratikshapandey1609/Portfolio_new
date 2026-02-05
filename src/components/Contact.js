@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import GeometricBackground from './GeometricBackground';
 
 const Contact = () => {
   const [inView, setInView] = useState(false);
@@ -77,6 +78,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 lg:ml-70 relative">
+      <GeometricBackground opacity={0.06} color="#40e0d0" />
       <div className="absolute inset-0 bg-hero-overlay" />
       
       <div className="container mx-auto px-6 relative z-10">
