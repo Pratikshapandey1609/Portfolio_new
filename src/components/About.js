@@ -28,9 +28,9 @@ const About = () => {
   }, []);
 
   const stats = [
-    { number: '10+', label: 'Projects' },
-    { number: '2+', label: 'Years Experience' },
-    { number: 'Java+React', label: 'Tech Focus' },
+    { number: '15+', label: 'Projects Built' },
+    { number: '2+', label: 'Years Learning' },
+    { number: 'Java+React', label: 'Specialization' },
   ];
 
   return (
@@ -60,14 +60,15 @@ const About = () => {
             className="space-y-6"
           >
             <p className="text-text-secondary text-lg leading-relaxed">
-              I'm a Computer Science student at Shri Ram Institute of Technology, specializing in full-stack development 
-              with expertise in Java, Spring Boot, React, and modern web technologies. I focus on building scalable, 
-              secure applications using both MERN stack and enterprise Java solutions.
+              I'm a Computer Science student at Shri Ram Institute of Technology with a passion for full-stack development. 
+              I specialize in Java, Spring Boot, React, and modern web technologies, focusing on building scalable, 
+              secure applications that solve real-world problems.
             </p>
             
             <p className="text-text-secondary text-lg leading-relaxed">
-              Currently expanding my skills in DevOps technologies like Docker and Kubernetes while maintaining a strong 
-              foundation in database management with MongoDB, MySQL, and PostgreSQL, along with API development and testing using Postman.
+              Currently gaining hands-on experience through internships and personal projects while expanding my expertise 
+              in DevOps technologies like Docker and Kubernetes. I maintain strong foundations in database management, 
+              API development, and modern development practices.
             </p>
 
             <motion.div
@@ -80,10 +81,10 @@ const About = () => {
                 Problem Solver
               </span>
               <span className="px-4 py-2 bg-electric-blue bg-opacity-10 text-electric-blue rounded-full text-sm font-medium border border-electric-blue border-opacity-30">
-                Team Player
+                Quick Learner
               </span>
               <span className="px-4 py-2 bg-electric-blue bg-opacity-10 text-electric-blue rounded-full text-sm font-medium border border-electric-blue border-opacity-30">
-                Quick Learner
+                Team Player
               </span>
             </motion.div>
           </motion.div>

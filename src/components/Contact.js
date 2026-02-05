@@ -69,6 +69,12 @@ const Contact = () => {
       link: 'mailto:pratishapandey239@gmail.com',
     },
     {
+      icon: 'fab fa-whatsapp',
+      title: 'WhatsApp',
+      value: '+91 8120684746',
+      link: 'https://wa.me/918120684746',
+    },
+    {
       icon: 'fas fa-map-marker-alt',
       title: 'Location',
       value: 'Jabalpur, India',
@@ -90,7 +96,7 @@ const Contact = () => {
         >
           <h2 className="section-title">Contact</h2>
           <p className="section-subtitle">
-            Let's discuss your next project
+            Let's connect! Whether you're looking for a team member, project collaborator, or just want to chat about tech
           </p>
         </motion.div>
 
@@ -212,7 +218,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-warm-slate border border-warm-slate rounded-lg text-text-primary placeholder-text-tertiary focus:border-electric-blue focus:outline-none focus:ring-2 focus:ring-electric-blue focus:ring-opacity-20 transition-all duration-300"
-                  placeholder="What's this about?"
+                  placeholder="Opportunity type, project details, or collaboration ideas"
                 />
               </div>
               
@@ -228,7 +234,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-warm-slate border border-warm-slate rounded-lg text-text-primary placeholder-text-tertiary focus:border-electric-blue focus:outline-none focus:ring-2 focus:ring-electric-blue focus:ring-opacity-20 transition-all duration-300 resize-none"
-                  placeholder="Tell me about your project or just say hello!"
+                  placeholder="Tell me about the opportunity, project, or just say hello!"
                 />
               </div>
               

@@ -11,8 +11,8 @@ const Hero = () => {
     const typed = new Typed(typedRef.current, {
       strings: [
         'Full-Stack Developer',
-        'React Specialist',
         'Java Developer',
+        'React Specialist',
         'Problem Solver'
       ],
       typeSpeed: 80,
@@ -267,8 +267,8 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed mb-8"
         >
-          Computer Science student specializing in Java, Spring Boot, React, and modern web technologies 
-          with expertise in building scalable, secure applications using both MERN stack and enterprise Java solutions.
+          Computer Science student and aspiring Full-Stack Developer specializing in Java, Spring Boot, React, and modern web technologies. 
+          Passionate about building scalable, secure applications and solving complex problems through innovative solutions.
         </motion.p>
         
         <motion.div

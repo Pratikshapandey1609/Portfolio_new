@@ -11,9 +11,11 @@ const Navbar = () => {
   const navItems = useMemo(() => [
     { id: 'hero', label: 'Home', icon: 'fas fa-home' },
     { id: 'about', label: 'About', icon: 'fas fa-user' },
-    { id: 'experience', label: 'Experience', icon: 'fas fa-briefcase' },
+    { id: 'services', label: 'Expertise', icon: 'fas fa-briefcase' },
+    { id: 'experience', label: 'Experience', icon: 'fas fa-building' },
     { id: 'skills', label: 'Skills', icon: 'fas fa-cogs' },
     { id: 'projects', label: 'Projects', icon: 'fas fa-code' },
+    { id: 'achievements', label: 'Achievements', icon: 'fas fa-trophy' },
     { id: 'contact', label: 'Contact', icon: 'fas fa-envelope' },
     { id: 'resume', label: 'Resume', icon: 'fas fa-file-alt' },
   ], []);
