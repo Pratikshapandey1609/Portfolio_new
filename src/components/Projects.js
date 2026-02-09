@@ -29,6 +29,14 @@ const Projects = () => {
 
   const projects = [
     {
+      title: 'Papermark',
+      description: 'Document sharing platform with advanced analytics and tracking capabilities. Features secure document sharing, real-time viewer analytics, and comprehensive engagement metrics.',
+      image: '/assets/img/papermark-logo.png',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma'],
+      githubUrl: 'https://github.com/Pratikshapandey1609/papermark',
+      liveUrl: 'https://papermark1-sigma.vercel.app',
+    },
+    {
       title: 'AI Resume Parser',
       description: 'AI-powered resume parsing system that extracts and structures information from resumes with high accuracy, reducing manual processing time by 85%.',
       image: '/assets/img/Resume-logo.jpg',
