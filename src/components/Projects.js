@@ -30,7 +30,7 @@ const Projects = () => {
   const projects = [
     {
       title: 'Papermark',
-      description: 'Document sharing platform with advanced analytics and tracking capabilities. Features secure document sharing, real-time viewer analytics, and comprehensive engagement metrics.',
+      description: 'Document sharing platform with advanced analytics and tracking capabilities built for Gravatonweb Technologies. Features secure document sharing, real-time viewer analytics, and comprehensive engagement metrics.',
       image: '/assets/img/papermark-logo.png',
       technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma'],
       githubUrl: 'https://github.com/Pratikshapandey1609/papermark',
