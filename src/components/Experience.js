@@ -29,13 +29,13 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Java Full Stack Developer',
+      title: 'Full Stack Developer',
       company: 'Gravatonweb Technologies',
       period: 'January 2026 - Present',
       location: 'Remote',
-      description: 'Working as a Java Full Stack Developer on enterprise-level web applications using Java Spring Boot for backend development and React.js for frontend interfaces.',
+      description: 'Working as a Full Stack Developer on enterprise-level web applications using Spring Boot for backend development and React.js for frontend interfaces.',
       responsibilities: [
-        'Developing enterprise web applications using Java Spring Boot framework',
+        'Developing enterprise web applications using Spring Boot framework',
         'Building responsive frontend interfaces with React.js and modern JavaScript',
         'Designing and implementing RESTful APIs with proper authentication and security',
         'Working with relational databases including MySQL and PostgreSQL',
