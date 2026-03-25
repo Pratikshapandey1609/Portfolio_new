@@ -30,8 +30,8 @@ const Experience = () => {
   const experiences = [
     {
       title: 'Full Stack Developer',
-      company: 'Gravatonweb Technologies',
-      period: 'January 2026 - Present',
+      company: 'Innovex Web Technology',
+      period: 'August 2025 - Present',
       location: 'Remote',
       description: 'Working as a Full Stack Developer on enterprise-level web applications using Spring Boot for backend development and React.js for frontend interfaces.',
       responsibilities: [
