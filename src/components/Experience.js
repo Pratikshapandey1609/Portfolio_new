@@ -29,19 +29,36 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: 'MERN Stack Developer',
+      company: 'Nura Care',
+      period: 'September 2026 - Present',
+      location: 'Remote',
+      description: 'Working as a MERN Stack Developer on an intelligent Period & Menstrual Cycle Tracking platform, empowering women to monitor cycle health, log daily symptoms, and receive personalized cycle and ovulation predictions.',
+      responsibilities: [
+        'Developing responsive, user-friendly frontend interfaces in React.js for cycle tracking, symptom logging, and interactive calendar views',
+        'Designing and building scalable RESTful APIs using Node.js and Express.js for cycle analytics and user health logs',
+        'Architecting MongoDB schemas to securely manage and store sensitive health records, cycle history, and user preferences',
+        'Implementing algorithms for cycle prediction, ovulation estimation, and fertile window forecasting based on historical cycle trends',
+        'Integrating JWT authentication and robust privacy safeguards to protect confidential personal health data',
+        'Collaborating in an agile environment, optimizing frontend state management, and ensuring seamless cross-device responsiveness'
+      ],
+      technologies: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'JavaScript', 'JWT', 'REST APIs', 'Git'],
+      type: 'internship'
+    },
+    {
       title: 'Full Stack Developer',
       company: 'Innovex Web Technology',
       period: 'August 2025 - Present',
       location: 'Remote',
-      description: 'Working as a Full Stack Developer on enterprise-level web applications using Spring Boot for backend development and React.js for frontend interfaces.',
+      description: 'Working as a Full Stack Developer on a comprehensive Restaurant Management & Online Food Ordering platform, utilizing Spring Boot for backend development and React.js for interactive frontend interfaces.',
       responsibilities: [
-        'Developing enterprise web applications using Spring Boot framework',
-        'Building responsive frontend interfaces with React.js and modern JavaScript',
-        'Designing and implementing RESTful APIs with proper authentication and security',
-        'Working with relational databases including MySQL and PostgreSQL',
-        'Implementing JWT-based authentication and authorization systems',
-        'Collaborating with cross-functional teams using Agile methodologies',
-        'Code review, testing, and maintaining high code quality standards'
+        'Developing core features for a restaurant management system, including dynamic digital menus, real-time table reservations, and order processing',
+        'Building responsive frontend interfaces with React.js and modern JavaScript for seamless diner and staff interactions',
+        'Designing and implementing robust RESTful APIs with Spring Boot for order workflows, menu inventory, and payment integration',
+        'Working with relational databases including MySQL and PostgreSQL for transaction records, menu catalogs, and customer data',
+        'Implementing JWT-based authentication and role-based access control for administrators, restaurant staff, and diners',
+        'Collaborating with cross-functional teams using Agile methodologies to deliver features iteratively',
+        'Code review, testing, and maintaining high code quality and system reliability'
       ],
       technologies: ['Java', 'Spring Boot', 'React.js', 'MySQL', 'PostgreSQL', 'JWT', 'Git', 'REST APIs'],
       type: 'internship'
